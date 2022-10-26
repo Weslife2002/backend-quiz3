@@ -1,22 +1,20 @@
 # backend-quiz3
 
 <!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  1. T [Quiz requirement](#quiz-requirement)
-    1. T [Quiz 1 Requirement](#quiz-1-requirement)
-    2. T [Quiz 2 Requirement](#quiz-2-requirement)
-  2. T [Quiz 1 Answer](#quiz1)
-    1. T [JS Native](#JS-native)
-    2. T [Array Native](#Array-native)
-    3. T [LoDash](#LoDash)
-    4. T [Comparison between JS Native, Array Native and LoDash](#Comparison)
-  3. T [Quiz 2](#quiz2)
-    1. T [Prerequisites](#prerequisites)
-    2. T [Prerequisites](#prerequisites)
-    3. T [Prerequisites](#prerequisites)
-    4. T [Prerequisites](#prerequisites)
-</details>
+## Table of Contents
+
+- [backend-quiz3](#backend-quiz3)
+  - [Table of Contents](#table-of-contents)
+  - [Quiz requirement](#quiz-requirement)
+    - [Quiz 1 requirement](#quiz-1-requirement)
+    - [Quiz 2 requirement](#quiz-2-requirement)
+  - [Quiz 1 Answer](#quiz-1-answer)
+    - [JS native](#js-native)
+    - [Array native](#array-native)
+    - [LoDash](#lodash)
+    - [Comparison](#comparison)
+  - [Quiz 2](#quiz-2)
+    - [Installation](#installation)
 
 <!-- overview -->
 ## Quiz requirement
@@ -26,29 +24,38 @@ The below section lists the detail requirement of the quiz.
 ### Quiz 1 requirement
 
 In the first task, I am required to list all object and arrays manipulation functions available in Array-native, JavaScript-native and LoDash.
-My answer is written on the section [Quiz 1 Answer](#quiz1)
+My answer is written on the section [Quiz 1 Answer](#quiz-1-answer)
+
 ### Quiz 2 requirement
 
 In the seond task, I am required to write two files - Scale.js and main.js in which:
 
-* Scale.js implements the class Scale that has 3 methods
+- Scale.js implements the class Scale that has 3 methods:
+  - constructor(): Initialize the class with an array include the weight of 12 coins, in which one is heavier or lighter than another.
+  - weigh(left, right): Take in two array contains coins' index and return 1 if the left is hevier than the right, 2 if the left is equals to the right and 3 for the last case.
+  - checkResult(faultIndex, heavier): Take in the index of the fault coin and true if the fault coin is heavier, false if the fault coin is lighter. However, if the user use the function checkResult more than one time, the function will always return false.
+- Main.js implements the function findFaultCoint that applys the optimized algorithm for solving the problem without accessing the private data of the Scale class.
 
-* ExpressJS
-* WSL2 for Windows
-* docker
-* PostgreSQL
-
-[back to top](#top)
+[back to top](#backend-quiz3)
 
 <!-- GETTING STARTED -->
-## Getting Started
+## Quiz 1 Answer
 
-This is an example of how you may give instructions on setting up your project locally.
+### JS native
 
-### Prerequisites
+### Array native
+
+### LoDash
+
+When a user first access the website, he doesn't have a session ye.
+
+### Comparison
+
+In conclusion, we can use express-session without Redis, but like the documentation has warned :"The default server-side session storage, MemoryStore, is purposely not designed for a production environment. It will leak memory under mo
+
+## Quiz 2
 
 ### Installation
-
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
 1. Install Redis Client.
@@ -57,66 +64,6 @@ Run the command below.
   ```sh
    sudo apt install redis-tools
    ```
-
-2. Install Redis Server.
-Run the command below.
-
-  ```sh
-   sudo apt install redis-server
-   ```
-
-3. Run Redis Server.
-Run the command below.
-
-  ```sh
-   redis-server
-   ```
-
-4. Open a new cmd and check for redis connection.
-Run the command below.
-
-  ```sh
-   redis-cli
-   ```
-
-5. Clone the repo
-
-   ```sh
-   git clone https://github.com/Weslife2002/NodeJS-ExpressSession-Redis.git
-   ```
-
-6. Create a copy of the .env.example file, change its name to .env and redefine the config.
-_For example above, I will configurate the .env file like this:_
-
-   ```sh
-    PORT= 3000
-   ```
-
-7. Install all the dependency.
-
-   ```sh
-   npm install
-   ```
-
-8. Run the project
-
-   ```sh
-    npm start
-   ```
-
-_NOTE: YOU CAN ADJUST THE CODE TO RUN THE TEST WITHOUT REDIS AND SEE WHAT HAPPENED WHEN YOU RESTART THE SEVER_
-
-### About data flow
-
-When a user first access the website, he doesn't have a session yet, so he will sent a request to the server to assign him a session. The server will query for userdata to the database and save the received infor as a session, the session is created and saved inside MemotyStore or temporary file or database or cache like redis (server). The server afterthat will send back a sessionID and from that point onward, the client will sent the request with sessionID attached in the header.
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-### Conclusion
-
-In conclusion, we can use express-session without Redis, but like the documentation has warned :"The default server-side session storage, MemoryStore, is purposely not designed for a production environment. It will leak memory under most conditions, does not scale past a single process, and is meant for debugging and developing.", besides, if some processes go wrong and we has to restart the server then all the current users' session will terminate. Therefore, we need to store the session inside redis.
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-### Reference
 
 1. NPM express-session documentation:   <https://github.com/expressjs/session>
 
