@@ -3,33 +3,19 @@
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#overview">Quiz requirement</a>
-      <ul>
-        <li><a href="#quiz1-requirement">Quiz 1 Requirement</a></li>
-        <li><a href="#quiz2-requirement">Quiz 2 Requirement</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#quiz1">Quiz 1 Answer</a>
-      <ul>
-        <li><a href="#JS-native">JS Native</a></li>
-        <li><a href="#Array-native">Array Native</a></li>
-        <li><a href="#LoDash">LoDash</a></li>
-        <li><a href="#Comparison">Comparison between JS Native, Array Native and LoDash</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#quiz2">Quiz 2</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#conclusion">Conclusion</a></li>
-        <li><a href="#Reference">Reference</a></li>
-      </ul>
-    </li>
-  </ol>
+  1. [Quiz requirement](#quiz-requirement)
+    1. [Quiz 1 Requirement](#quiz-1-requirement)
+    2. [Quiz 2 Requirement](#quiz-2-requirement)
+  2. [Quiz 1 Answer](#quiz1)
+    1. [JS Native](#JS-native)
+    2. [Array Native](#Array-native)
+    3. [LoDash](#LoDash)
+    4. [Comparison between JS Native, Array Native and LoDash](#Comparison)
+  3. [Quiz 2](#quiz2)
+    1. [Prerequisites](#prerequisites)
+    2. [Prerequisites](#prerequisites)
+    3. [Prerequisites](#prerequisites)
+    4. [Prerequisites](#prerequisites)
 </details>
 
 <!-- overview -->
