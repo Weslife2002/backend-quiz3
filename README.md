@@ -14,7 +14,7 @@
     - [LoDash](#lodash)
     - [Comparison](#comparison)
   - [Quiz 2](#quiz-2)
-    - [Installation](#installation)
+    - [Set up and run](#set-up-and-run)
 
 <!-- overview -->
 ## Quiz requirement
@@ -40,22 +40,22 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
 
 <!-- GETTING STARTED -->
 ## Quiz 1 Answer
-
+- 
 ### JS native
-
+- 
 ### Array native
-
+- 
 ### LoDash
 
-When a user first access the website, he doesn't have a session ye.
+- 
 
 ### Comparison
 
-In conclusion, we can use express-session without Redis, but like the documentation has warned :"The default server-side session storage, MemoryStore, is purposely not designed for a production environment. It will leak memory under mo
+- 
 
 ## Quiz 2
 
-### Installation
+### Set up and run
 
 _Below is how use can run my code in your computer._
 
@@ -65,12 +65,12 @@ _Below is how use can run my code in your computer._
    git clone https://github.com/Weslife2002/backend-quiz3.git
    ```
 
-1. Access the file and run the command below.
+2. Access the file and run the command below.
 
   ```sh
-   sudo apt install redis-tools
+   Node main.js
    ```
 
-1. Done.
+3. 1000 test cases for the problems are generated and the result is shown.
 
 [back to top](#backend-quiz3)
