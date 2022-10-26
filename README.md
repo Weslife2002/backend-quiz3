@@ -40,7 +40,7 @@ The below section lists the detail requirement of the quiz.
 ### Quiz 1 requirement
 
 In the first task, I am required to list all object and arrays manipulation functions available in Array-native, JavaScript-native and LoDash.
-My answer is written on the section [Quiz 1 Answer]("#quiz1")
+My answer is written on the section [Quiz 1 Answer](#quiz1)
 ### Quiz 2 requirement
 
 In the seond task, I am required to write two files - Scale.js and main.js in which:
@@ -52,7 +52,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
 * docker
 * PostgreSQL
 
-[back to top]("#top")
+[back to top](#top)
 
 <!-- GETTING STARTED -->
 ## Getting Started
