@@ -56,15 +56,21 @@ In conclusion, we can use express-session without Redis, but like the documentat
 ## Quiz 2
 
 ### Installation
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Install Redis Client.
-Run the command below.
+_Below is how use can run my code in your computer._
+
+1. Clone my respository by running the command below.
+
+  ```sh
+   git clone https://github.com/Weslife2002/backend-quiz3.git
+   ```
+
+1. Access the file and run the command below.
 
   ```sh
    sudo apt install redis-tools
    ```
 
-1. NPM express-session documentation:   <https://github.com/expressjs/session>
+1. Done.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+[back to top](#backend-quiz3)
