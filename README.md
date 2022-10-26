@@ -3,19 +3,19 @@
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
-  1. [Quiz requirement](#quiz-requirement)
-    1. [Quiz 1 Requirement](#quiz-1-requirement)
-    2. [Quiz 2 Requirement](#quiz-2-requirement)
-  2. [Quiz 1 Answer](#quiz1)
-    1. [JS Native](#JS-native)
-    2. [Array Native](#Array-native)
-    3. [LoDash](#LoDash)
-    4. [Comparison between JS Native, Array Native and LoDash](#Comparison)
-  3. [Quiz 2](#quiz2)
-    1. [Prerequisites](#prerequisites)
-    2. [Prerequisites](#prerequisites)
-    3. [Prerequisites](#prerequisites)
-    4. [Prerequisites](#prerequisites)
+  1. T [Quiz requirement](#quiz-requirement)
+    1. T [Quiz 1 Requirement](#quiz-1-requirement)
+    2. T [Quiz 2 Requirement](#quiz-2-requirement)
+  2. T [Quiz 1 Answer](#quiz1)
+    1. T [JS Native](#JS-native)
+    2. T [Array Native](#Array-native)
+    3. T [LoDash](#LoDash)
+    4. T [Comparison between JS Native, Array Native and LoDash](#Comparison)
+  3. T [Quiz 2](#quiz2)
+    1. T [Prerequisites](#prerequisites)
+    2. T [Prerequisites](#prerequisites)
+    3. T [Prerequisites](#prerequisites)
+    4. T [Prerequisites](#prerequisites)
 </details>
 
 <!-- overview -->
