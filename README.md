@@ -27,11 +27,11 @@ My answer is written on the section [Quiz 1 Answer](#quiz-1-answer)
 
 In the seond task, I am required to write two files - Scale.js and main.js in which:
 
-- Scale.js implements the class Scale that has 3 methods:
-  - constructor(): Initialize the class with an array include the weight of 12 coins, in which one is heavier or lighter than another.
-  - weigh(left, right): Take in two array contains coins' index and return 1 if the left is hevier than the right, 2 if the left is equals to the right and 3 for the last case.
-  - checkResult(faultIndex, heavier): Take in the index of the fault coin and true if the fault coin is heavier, false if the fault coin is lighter. However, if the user use the function checkResult more than one time, the function will always return false.
-- algo.js implements the function findFaultCoint that applys the optimized algorithm for solving the problem without accessing the private data of the Scale class.
+- **Scale.js** implements the class Scale that has 3 methods:
+  - **constructor()**: Initialize the class with an array include the weight of 12 coins, in which one is heavier or lighter than another.
+  - **weigh(left, right)**: Take in two array contains coins' index and return 1 if the left is hevier than the right, 2 if the left is equals to the right and 3 for the last case.
+  - **checkResult(faultIndex, heavier)**: Take in the index of the fault coin and true if the fault coin is heavier, false if the fault coin is lighter. However, if the user use the function checkResult more than one time, the function will always return false.
+- **algo.js** implements the function findFaultCoint that applys the optimized algorithm for solving the problem without accessing the private data of the Scale class.
 
 [back to top](#backend-quiz3)
 
@@ -40,7 +40,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
 
 ### JS native
 
-1. push()
+1. **push()**
 
     Put the element to the back of the array. Return the length of the current
 
@@ -51,7 +51,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       })
     ```
 
-2. pop()
+2. **pop()**
 
     The pop() method remove the last element of the array, it will return the removed element.
 
@@ -60,7 +60,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       popElement = arr.pop(); // popElement: 200, arr: [5, 12, 8, 130]
     ```
 
-3. unshift()
+3. **unshift()**
 
     The unshift() method adds one or more elements to the beginning of an array and returns its new length.
 
@@ -69,7 +69,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       array.unshift(5, 6, 10); // This will return 7. array: [5, 6, 10, 1, 2, 3, 4]
     ```
 
-4. shift()
+4. **shift()**
 
     The shift() method removes the first element from an array and returns the removed element changing the array's length.
 
@@ -80,7 +80,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
 
     ![stack-queue](./img/stack_queue.png)
 
-5. slice(begin, end)
+5. **slice()**
 
     The slice make a shallow copy for each element from index = begin to index = end -1, if end is negative, the end index is automatically assign as array.length + end.
 
@@ -92,7 +92,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
 
     ![slice](./img/slice.png)
 
-6. splice()
+6. **splice()**
 
     The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
 
@@ -105,7 +105,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
     ![splice](./img/splice.png)
     ![splice](./img/splice1.png)
 
-7. join()
+7. **join()**
 
     The join() method creates and returns a new string by concatenating all of the elements in an array, separated by commas or a specified separator string.
 
@@ -117,7 +117,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
 
     ![join](./img/join.png)
 
-8. filter()
+8. **filter()**
 
     This method create new array with only elements passed condition inside the provided function. If you make change to the element when filter it, the original element will also be changed.
 
@@ -128,7 +128,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
 
     ![filter](./img/filter.png)
 
-9.  map()
+9. **map()**
 
     This method create new array by calling the provided function in every element. If you make change to the element while mapping, the original element will also be changed.
 
@@ -139,25 +139,25 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
 
     ![map](./img/map.png)
 
-10. find()
+10. **find()**
 
     Returns the value of the first element in the array that satisfies the provided testing function, or undefined if no appropriate element is found.
 
-11. findIndex()
+11. **findIndex()**
 
     Returns the index of the first element in the array that satisfies the provided testing function, or -1 if no appropriate element was found.
 
-12. findLast()
+12. **findLast()**
 
     Returns the value of the last element in the array that satisfies the provided testing function, or undefined if no appropriate element is found.
 
-13. findLastIndex()
+13. **findLastIndex()**
 
     Returns the index of the last element in the array that satisfies the provided testing function, or -1 if no appropriate element was found.
 
     ![find](./img/find.png)
 
-14. reduce()
+14. **reduce()**
 
     The reduce() method applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value. If you make change to the element when accumulate, the original element will also be changed. Without the inital value, the reduce function will carry out with the first 2 elements. The third element if map function has will be from 0..n. The fourth element is the object that call the map function.
 
@@ -166,7 +166,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       const sum = arr.reduce((total, value) => total + value, 0); // sum = 21
     ```
 
-15. fill()
+15. **fill()**
     The fill() method changes all elements in an array to a static value, from a start index (default 0) to an end index (default array.length). It returns the modified array.
 
     ```js
@@ -175,7 +175,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       fill(value, start, end)
     ```
 
-16. includes()
+16. **includes()**
 
     This method check if array includes the item passed in the method.
 
@@ -185,7 +185,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       arr.includes(7); // output: false
     ```
 
-17. some()
+17. **some()**
 
     This method check if at least one of array’s item passed the condition. If passed, it return ‘true’ otherwise ‘false’.
 
@@ -201,7 +201,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(smallNum); // output: false
     ```
 
-18. every()
+18. **every()**
 
     The reduce() method applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.
 
@@ -212,7 +212,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(sum); // 21
     ```
 
-19. forEach()
+19. **forEach()**
 
     This method can help you to loop over array’s items. If you make change to the element when loop over it, the array will also be changed.
 
@@ -223,7 +223,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       })
     ```
 
-20. sort()
+20. **sort()**
 
     The sort() method sorts the elements of an array in place.
 
@@ -233,7 +233,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       arr.sort((a, b) => a.length - b.length); // arr = [[1, 2, 5], [3, 5, 7], [1, 2, 3, 4, 5, 6]];
     ```
 
-21. concat()
+21. **concat()**
     The concat() method is used to merge two or more arrays and returns a new array build of this array joined with other arrays. Each element in the array is a shallow copy of the original element.
 
     ```js
@@ -244,7 +244,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
 
     _NOTE: YOU CAN USE SPREAD SYNTAX INSTEAD OF CONCAT_
 
-22. findIndex()
+22. **findIndex()**
     The findIndex() method returns an index of the first item in an array that satisfies the provided testing function; otherwise, it returns -1, indicating no element passed the test. The findIndex() method executes a function once for each item present in an array. If you make change to the element in the step, the array will also be change.
 
     ```js
@@ -256,7 +256,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       arr.findIndex(condition); // output: 3
     ```
 
-23. reduceRight()
+23. **reduceRight()**
     The reduceRight() method executes the callback function once for each element present in the array, receiving four arguments: the initial value (or value from the previous callback call), the current element's value, the current index, and the array over which iteration is occurring.
 
     ```js
@@ -265,7 +265,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       }); // sum = 10;
     ```
 
-24. reverse()
+24. **reverse()**
     The reverse() method reverse all elements of an array.
 
     ```js
@@ -273,7 +273,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       arr.reverse(); // arr: [200, 130, 8, 12, 5]
     ```
 
-25. from()
+25. **from()**
 
     The Array.from() static method creates a new, shallow-copied Array instance from an iterable or array-like object.
 
@@ -285,7 +285,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       // expected output: Array [2, 4, 6]
     ```
 
-26. of()
+26. **of()**
     The Array.of() method creates a new Array instance from a variable number of arguments, regardless of number or type of the arguments.
 
     ```js
@@ -294,7 +294,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       Array.of(element0, element1, /* … ,*/ elementN)
     ```
 
-27. length
+27. **length**
     Return the length of the array.
 
     ```js
@@ -302,7 +302,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       arr.length; // output: 5
     ```
 
-28. spread syntax (...)
+28. **spread syntax (...)**
     The spread syntax will make a shallow copy of each element from the original array.
 
     ```js
