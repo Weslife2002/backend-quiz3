@@ -246,20 +246,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
 
     _Note: You can use spread syntax instead of concat_
 
-22. **findIndex()**
-
-    The findIndex() method returns an index of the first item in an array that satisfies the provided testing function; otherwise, it returns -1, indicating no element passed the test. The findIndex() method executes a function once for each item present in an array. If you make change to the element in the step, the array will also be change.
-
-    ```js
-      const arr = [5, 12, 8, 130, 200];
-      const condition = (element) => { 
-        element += 10; 
-        return element > 100
-      };
-      arr.findIndex(condition); // output: 3
-    ```
-
-23. **reduceRight()**
+22. **reduceRight()**
 
     The reduceRight() method executes the callback function once for each element present in the array, receiving four arguments: the initial value (or value from the previous callback call), the current element's value, the current index, and the array over which iteration is occurring.
 
@@ -269,7 +256,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       }); // sum = 10;
     ```
 
-24. **reverse()**
+23. **reverse()**
 
     The reverse() method reverse all elements of an array.
 
@@ -278,7 +265,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       arr.reverse(); // arr: [200, 130, 8, 12, 5]
     ```
 
-25. **from()**
+24. **from()**
 
     The Array.from() static method creates a new, shallow-copied Array instance from an iterable or array-like object.
 
@@ -290,7 +277,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       // expected output: Array [2, 4, 6]
     ```
 
-26. **of()**
+25. **of()**
 
     The Array.of() method creates a new Array instance from a variable number of arguments, regardless of number or type of the arguments.
 
@@ -300,7 +287,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       Array.of(element0, element1, /* … ,*/ elementN)
     ```
 
-27. **length**
+26. **length**
 
     Return the length of the array.
 
@@ -309,7 +296,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       arr.length; // output: 5
     ```
 
-28. **spread syntax (...)**
+27. **spread syntax (...)**
 
     The spread syntax will make a shallow copy of each element from the original array.
 
