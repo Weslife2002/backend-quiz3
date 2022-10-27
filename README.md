@@ -487,19 +487,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       let clonedBook = _.clone(book);
     ```
 
-12. _.clone
-
-    When it comes to Lodash, this task turns out to be a piece of cake. For example, you want to create another book object with the same value of the given book:
-
-    ```js
-      let book = {
-        name: ‘JavaScript: The Good Parts’,
-        price: 13.5
-      };
-      let clonedBook = _.clone(book);
-    ```
-
-13. _.isEqual
+12. _.isEqual
 
     What do you usually do if you want to compare two objects? Compare every single property or using JSON.stringify?
     Have you tried Lodash’s isEqual? You may not see the significant value of it until you have to handle deeply nested objects.
@@ -517,7 +505,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(_.isEqual(book1, book2)); // true
     ```
 
-14. _.pick
+13. _.pick
 
     This function is useful when you want to form a new object based on the properties of the existing object.
 
@@ -532,7 +520,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(newProduct); // { name: ‘Learning React Native, price: 15 }
     ```
 
-15. _.omit
+14. _.omit
 
     You can also excuse this task in an inverted manner by using omit function:
 
@@ -547,7 +535,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(newProduct); // { name: ‘Learning React Native, price: 15 }
     ```
 
-16. _.isEmpty
+15. _.isEmpty
 
     You use this function when you want to check if an object, a map, a collection, or a set is empty.
 
@@ -570,7 +558,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(_.isEmpty(undefinedBook)); // true;
     ```
 
-17. _.concat
+16. _.concat
 
     You can use concat method to merge arrays:
 
@@ -582,7 +570,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(mergedArray); // [1, 5, 3, 1, 7, 25, 21, 11, 3, 3, 2];
     ```
 
-18. _.union
+17. _.union
 
     In case you want the element’s values of the merged array to be unique, you can use union function:
 
@@ -591,7 +579,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
     ```
 
-19. _.Difference
+18. _.Difference
 
     The difference function will produce a new array of values that differ between the first and second arrays. It is vital to note that the locations of the arguments affect the outcomes.
 
@@ -600,7 +588,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
     ```
 
-20. _.get
+19. _.get
 
     The _.get() function can assist us in locating an element within an object. We can set a default value for the _.get() function to return if an element is not found at the supplied path. The _.get() function takes three parameters, the first of which is the object from which we wish to obtain an element. The path is the second. The third value is the default value we want to return if an element can not be located.
 
@@ -609,7 +597,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
     ```
 
-21. _.merge
+20. _.merge
 
     It functions similarly to Object.assign, except it recurses deep into the underlying structure to update the deeper objects rather than replacing them.
 
@@ -618,7 +606,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
     ```
 
-22. _.intersection
+21. _.intersection
 
     It functions similarly to Object.assign, except it recurses deep into the underlying structure to update the deeper objects rather than replacing them.
 
@@ -627,7 +615,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
     ```
 
-23. _.orderBy
+22. _.orderBy
 
     The orderBy method is similar to sortBy but it allows us to specify the descending or ascending sort order. For descending sort, we specify desc and for ascending we specify asc.
 
