@@ -122,7 +122,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
     This method create new array with only elements passed condition inside the provided function. If you make change to the element when filter it, the original element will also be changed.
 
     ```js
-      const arr = [1, 2, 3, 4, 5, 6]
+      const arr = [1, 2, 3, 4, 5, 6];
       arr.filter(x => x % 2 === 0);  // arr = [2, 4, 6]
     ```
 
@@ -357,7 +357,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
 
 4. _.find
 
-    Instead iterating through an array with a loop to find a specific object, we can simply use _.find. That’s nice, but this is not the only thing you can do with _.find. You can also find an object using multiple properties with a single line of code. Take a look!
+    Instead iterating through an array with a loop to find a specific object, we can simply use _.find. That’s nice, but this is not the only thing you can do with_.find. You can also find an object using multiple properties with a single line of code. Take a look!
 
     ```js
       var users = [
@@ -378,7 +378,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
 
 5. _.get and ._set
 
-    For this one I will cheat a little bit by presenting 2 functions that do almost the same thing. _.get will return a property value from an object and _.set will, well you guessed it, set a property with a value. Nothing special except that you can access a property with its path.
+    For this one I will cheat a little bit by presenting 2 functions that do almost the same thing. _.get will return a property value from an object and_.set will, well you guessed it, set a property with a value. Nothing special except that you can access a property with its path.
 
     ```js
       var bar = { foo: { key: "foo" } };
@@ -390,7 +390,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
 
 6. _.keyBy
 
-    For this one I will cheat a little bit by presenting 2 functions that do almost the same thing. _.get will return a property value from an object and _.set will, well you guessed it, set a property with a value. Nothing special except that you can access a property with its path.
+    For this one I will cheat a little bit by presenting 2 functions that do almost the same thing. _.get will return a property value from an object and_.set will, well you guessed it, set a property with a value. Nothing special except that you can access a property with its path.
 
     ```js
       var posts = [
@@ -409,7 +409,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
 
 7. _.reduce
 
-    For this one I will cheat a little bit by presenting 2 functions that do almost the same thing. _.get will return a property value from an object and _.set will, well you guessed it, set a property with a value. Nothing special except that you can access a property with its path.
+    For this one I will cheat a little bit by presenting 2 functions that do almost the same thing. _.get will return a property value from an object and_.set will, well you guessed it, set a property with a value. Nothing special except that you can access a property with its path.
 
     ```js
       var users = [
@@ -452,7 +452,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       // original -> { foo: "bar" } Yeah!
     ```
 
-9. _. sortedUniq
+9. _.sortedUniq
 
     With this one, all duplicated values won’t be returned. This is usually used for performance reasons, because it is specifically for the sorted arrays.
 
@@ -462,33 +462,231 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       // -> [1, 2, 3, 5, 8]
     ```
 
-10. _.get and ._set
+10. _.filter
 
-    For this one I will cheat a little bit by presenting 2 functions that do almost the same thing. _.get will return a property value from an object and _.set will, well you guessed it, set a property with a value. Nothing special except that you can access a property with its path.
+    Given that you want to show a list of fiction books, then:
 
     ```js
-      var bar = { foo: { key: "foo" } };
-      _.set(bar, "foo.items[0]", "An item");
-      // bar => { foo: { key: "foo", items: ["An item"] } }
-      var name = _.get(bar, "name", "John Doe");
-      // name => John Doe
+      _.filter(books: { genre: ‘fiction’ });
+      _.filter(books: function(book) {
+        return book.genre === ‘fiction’ && book.price > 7.5;
+      });
     ```
 
-11. _.get and ._set
+11. _.clone
 
-    For this one I will cheat a little bit by presenting 2 functions that do almost the same thing. _.get will return a property value from an object and _.set will, well you guessed it, set a property with a value. Nothing special except that you can access a property with its path.
+    When it comes to Lodash, this task turns out to be a piece of cake. For example, you want to create another book object with the same value of the given book:
 
     ```js
-      var bar = { foo: { key: "foo" } };
-      _.set(bar, "foo.items[0]", "An item");
-      // bar => { foo: { key: "foo", items: ["An item"] } }
-      var name = _.get(bar, "name", "John Doe");
-      // name => John Doe
+      let book = {
+        name: ‘JavaScript: The Good Parts’,
+        price: 13.5
+      };
+      let clonedBook = _.clone(book);
+    ```
+
+12. _.clone
+
+    When it comes to Lodash, this task turns out to be a piece of cake. For example, you want to create another book object with the same value of the given book:
+
+    ```js
+      let book = {
+        name: ‘JavaScript: The Good Parts’,
+        price: 13.5
+      };
+      let clonedBook = _.clone(book);
+    ```
+
+13. _.isEqual
+
+    What do you usually do if you want to compare two objects? Compare every single property or using JSON.stringify?
+    Have you tried Lodash’s isEqual? You may not see the significant value of it until you have to handle deeply nested objects.
+    With just a simple call, isEqual will take the comparison to the deep level.
+
+    ```js
+      let book1 = {
+        name: ‘JavaScript: The Good Parts’,
+        price: 13.5
+      };
+      let book2 = {
+        name: ‘JavaScript: The Good Parts’,
+        price: 13.5
+      };
+      console.log(_.isEqual(book1, book2)); // true
+    ```
+
+14. _.pick
+
+    This function is useful when you want to form a new object based on the properties of the existing object.
+
+    ```js
+      let product = {
+        name: ‘Learning React Native’,
+        category: ‘Book’,
+        price: 15,
+        discount: 0.3
+      };
+      let newProduct = _.pick(product, [‘name’, ‘price’]);
+      console.log(newProduct); // { name: ‘Learning React Native, price: 15 }
+    ```
+
+15. _.omit
+
+    You can also excuse this task in an inverted manner by using omit function:
+
+    ```js
+      let product = {
+        name: ‘Learning React Native’,
+        category: ‘Book’,
+        price: 15,
+        discount: 0.3
+      };
+      let newProduct = _.omit(product, [category, discount]);
+      console.log(newProduct); // { name: ‘Learning React Native, price: 15 }
+    ```
+
+16. _.isEmpty
+
+    You use this function when you want to check if an object, a map, a collection, or a set is empty.
+
+    ```js
+      let book1 = {};
+      console.log(_.isEmpty(book1)); // true;
+      let book2 = { name: ‘Learning JavaScript };
+      console.log(_.isEmpty(book2)); // false;
+      let books1 = [{
+        name: ‘Learning JavaScript’
+      }, {
+        name: ‘Learning React Native’
+      }];
+      console.log(_.isEmpty(books1)); // false;
+      let books2 = [];
+      console.log(_.isEmpty(books2)); // true;
+      let nullBook = null;
+      console.log(_.isEmpty(nullBook)); // true;
+      let undefinedBook = undefined;
+      console.log(_.isEmpty(undefinedBook)); // true;
+    ```
+
+17. _.concat
+
+    You can use concat method to merge arrays:
+
+    ```js
+      let array1 = [1, 5, 3, 1];
+      let array2 = [7, 25, 21];
+      let array3 = [11, 3, 3, 2];
+      let mergedArray = _.concat(array1, array2, array3);
+      console.log(mergedArray); // [1, 5, 3, 1, 7, 25, 21, 11, 3, 3, 2];
+    ```
+
+18. _.union
+
+    In case you want the element’s values of the merged array to be unique, you can use union function:
+
+    ```js
+      let mergedArray = _.union(array1, array2, array3);
+      console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
+    ```
+
+19. _.Difference
+
+    The difference function will produce a new array of values that differ between the first and second arrays. It is vital to note that the locations of the arguments affect the outcomes.
+
+    ```js
+      let mergedArray = _.union(array1, array2, array3);
+      console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
+    ```
+
+20. _.get
+
+    The _.get() function can assist us in locating an element within an object. We can set a default value for the _.get() function to return if an element is not found at the supplied path. The _.get() function takes three parameters, the first of which is the object from which we wish to obtain an element. The path is the second. The third value is the default value we want to return if an element can not be located.
+
+    ```js
+      let mergedArray = _.union(array1, array2, array3);
+      console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
+    ```
+
+21. _.merge
+
+    It functions similarly to Object.assign, except it recurses deep into the underlying structure to update the deeper objects rather than replacing them.
+
+    ```js
+      let mergedArray = _.union(array1, array2, array3);
+      console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
+    ```
+
+22. _.intersection
+
+    It functions similarly to Object.assign, except it recurses deep into the underlying structure to update the deeper objects rather than replacing them.
+
+    ```js
+      let mergedArray = _.union(array1, array2, array3);
+      console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
+    ```
+
+23. _.orderBy
+
+    The orderBy method is similar to sortBy but it allows us to specify the descending or ascending sort order. For descending sort, we specify desc and for ascending we specify asc.
+
+    ```js
+      const users = [
+        { 'user': 'fred',   'age': 48 },
+        { 'user': 'barney', 'age': 36 },
+        { 'user': 'fred',   'age': 40 },
+        { 'user': 'barney', 'age': 34 }
+      ];
+
+      // sort by user in descending order
+      console.log(_.orderBy(users, ['user'], ['desc']));
+
+      // sort by user in ascending order and age by descending order
+      console.log(_.orderBy(users, ['user', 'age'], ['asc', 'desc']));
     ```
 
 ### Comparison
 
-- 
+1. **_.filter() vs filter()**
+
+    In native-JS, filter() only accepts the second parameter as function while LoDash accepts JSON object type.
+
+    ```js
+      const users = [
+        { user: 'barney', age: 36, active: true },
+        { user: 'fred', age: 40, active: false },
+      ];
+
+      console.log(_.filter(users, { age: 36, active: true })); // [ { user: 'barney', age: 36, active: true } ]
+      console.log(users.filter({ age: 36, active: true })); // TypeError: #<Object> is not a function
+    ```
+
+2. **..., slice() vs _.clone(), _.deepClone()**
+
+    In native-JS, filter() only accepts the second parameter as function while LoDash accepts JSON object type.
+
+    ```js
+      const users = [
+        { user: 'barney', age: 36, active: true },
+        { user: 'fred', age: 40, active: false },
+      ];
+
+      console.log(_.filter(users, { age: 36, active: true })); // [ { user: 'barney', age: 36, active: true } ]
+      console.log(users.filter({ age: 36, active: true })); // TypeError: #<Object> is not a function
+    ```
+
+3. **..., concat(), _.concat(), _.union()**
+
+    In native-JS, filter() only accepts the second parameter as function while LoDash accepts JSON object type.
+
+    ```js
+      const users = [
+        { user: 'barney', age: 36, active: true },
+        { user: 'fred', age: 40, active: false },
+      ];
+
+      console.log(_.filter(users, { age: 36, active: true })); // [ { user: 'barney', age: 36, active: true } ]
+      console.log(users.filter({ age: 36, active: true })); // TypeError: #<Object> is not a function
+    ```
 
 ## Quiz 2
 
