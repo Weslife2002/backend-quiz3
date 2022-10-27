@@ -318,6 +318,8 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       const newArr = [1, 2, 3, 4, ...array]; // newArr = [1, 2, 3, 4, 5, 12, 8, 130, 200]
     ```
 
+[back to top](#backend-quiz3)
+
 ### LoDash
 
 1. _.assign
@@ -644,6 +646,8 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(_.orderBy(users, ['user', 'age'], ['asc', 'desc']));
     ```
 
+[back to top](#backend-quiz3)
+
 ### Comparison
 
 1. **_.filter() vs filter()**
@@ -688,6 +692,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(users.filter({ age: 36, active: true })); // TypeError: #<Object> is not a function
     ```
 
+[back to top](#backend-quiz3)
 ## Quiz 2
 
 ### Set up and run
