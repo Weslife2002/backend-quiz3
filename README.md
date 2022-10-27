@@ -696,15 +696,15 @@ _Below is how use can run my code in your computer._
 
 1. Clone my respository by running the command below.
 
-  ```sh
-   git clone https://github.com/Weslife2002/backend-quiz3.git
-   ```
+    ```sh
+    git clone https://github.com/Weslife2002/backend-quiz3.git
+    ```
 
 2. Access the file and run the command below.
 
-  ```sh
-   Node algo.js
-   ```
+    ```sh
+    Node algo.js
+    ```
 
 3. 1000 test cases for the problems are generated and the result is shown.
 
