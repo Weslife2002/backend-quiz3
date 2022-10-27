@@ -167,6 +167,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
     ```
 
 15. **fill()**
+
     The fill() method changes all elements in an array to a static value, from a start index (default 0) to an end index (default array.length). It returns the modified array.
 
     ```js
@@ -234,6 +235,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
     ```
 
 21. **concat()**
+
     The concat() method is used to merge two or more arrays and returns a new array build of this array joined with other arrays. Each element in the array is a shallow copy of the original element.
 
     ```js
@@ -242,9 +244,10 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       const array = array1.concat(array2); // array = [1, 2, 'a', 'b', 'c'];
     ```
 
-    _NOTE: YOU CAN USE SPREAD SYNTAX INSTEAD OF CONCAT_
+    _Note: You can use spread syntax instead of concat_
 
 22. **findIndex()**
+
     The findIndex() method returns an index of the first item in an array that satisfies the provided testing function; otherwise, it returns -1, indicating no element passed the test. The findIndex() method executes a function once for each item present in an array. If you make change to the element in the step, the array will also be change.
 
     ```js
@@ -257,6 +260,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
     ```
 
 23. **reduceRight()**
+
     The reduceRight() method executes the callback function once for each element present in the array, receiving four arguments: the initial value (or value from the previous callback call), the current element's value, the current index, and the array over which iteration is occurring.
 
     ```js
@@ -266,6 +270,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
     ```
 
 24. **reverse()**
+
     The reverse() method reverse all elements of an array.
 
     ```js
@@ -286,6 +291,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
     ```
 
 26. **of()**
+
     The Array.of() method creates a new Array instance from a variable number of arguments, regardless of number or type of the arguments.
 
     ```js
@@ -295,6 +301,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
     ```
 
 27. **length**
+
     Return the length of the array.
 
     ```js
@@ -303,6 +310,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
     ```
 
 28. **spread syntax (...)**
+
     The spread syntax will make a shallow copy of each element from the original array.
 
     ```js
