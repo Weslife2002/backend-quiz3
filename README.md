@@ -681,6 +681,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
     ```
 
 [back to top](#backend-quiz3)
+
 ## Quiz 2
 
 ### Set up and run
