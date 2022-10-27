@@ -320,7 +320,171 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
 
 ### LoDash
 
-- 
+1. _.assign
+
+    _.assign is the equivalent of the spread operator from ES6. It’s pretty easy to understand, it assigns properties of one or many objects to a source object.
+
+    ```js
+      const array = [5, 12, 8, 130, 200];
+      const newArr = [1, 2, 3, 4, ...array]; // newArr = [1, 2, 3, 4, 5, 12, 8, 130, 200]
+    ```
+
+2. _.times
+
+    _.times receives as arguments the number of iterations and a function to execute n times and returns an array of the results. Very useful when creating dynamic test data.
+
+    ```js
+      function getRandomInteger() {
+        return Math.round(Math.random() * 100);
+      }
+
+      var result = _.times(5, getRandomNumber);
+      // result => [64, 70, 29, 10, 23]
+    ```
+
+3. _.debounce
+
+    _.debounce will invoke a function after a certain amount of time since the last time it was invoked.
+
+    ```js
+      function validateEmail() {
+          // Validate email here and show error message if not valid
+      }
+
+      var emailInput = document.getElementById("email-field");
+      emailInput.addEventListener("keyup", _.debounce(validateEmail, 500));
+    ```
+
+4. _.find
+
+    Instead iterating through an array with a loop to find a specific object, we can simply use _.find. That’s nice, but this is not the only thing you can do with _.find. You can also find an object using multiple properties with a single line of code. Take a look!
+
+    ```js
+      var users = [
+        { firstName: "John", lastName: "Doe", age: 28, gender: "male" },
+        { firstName: "Jane", lastName: "Doe", age: 5, gender: "female" },
+        { firstName: "Jim", lastName: "Carrey", age: 54, gender: "male" },
+        { firstName: "Kate", lastName: "Winslet", age: 40, gender: "female" }
+      ];
+
+      var user = _.find(users, { lastName: "Doe", gender: "male" });
+      // user -> { firstName: "John", lastName: "Doe", age: 28, gender: "male" }
+
+      var underAgeUser = _.find(users, function(user) {
+        return user.age < 18;
+      });
+      // underAgeUser -> { firstName: "Jane", lastName: "Doe", age: 5, gender: "female" }
+    ```
+
+5. _.get and ._set
+
+    For this one I will cheat a little bit by presenting 2 functions that do almost the same thing. _.get will return a property value from an object and _.set will, well you guessed it, set a property with a value. Nothing special except that you can access a property with its path.
+
+    ```js
+      var bar = { foo: { key: "foo" } };
+      _.set(bar, "foo.items[0]", "An item");
+      // bar => { foo: { key: "foo", items: ["An item"] } }
+      var name = _.get(bar, "name", "John Doe");
+      // name => John Doe
+    ```
+
+6. _.keyBy
+
+    For this one I will cheat a little bit by presenting 2 functions that do almost the same thing. _.get will return a property value from an object and _.set will, well you guessed it, set a property with a value. Nothing special except that you can access a property with its path.
+
+    ```js
+      var posts = [
+        { id: "1abc", title: "First blog post", content: "..." },
+        { id: "2abc", title: "Second blog post", content: "..." },
+        // more blog posts
+        { id: "34abc", title: "The blog post we want", content: "..." }
+        // even more blog posts
+      ];
+
+      posts = _.keyBy(posts, "id");
+
+      var post = posts["34abc"]
+      // post -> { id: "34abc", title: "The blog post we want", content: "..." }
+    ```
+
+7. _.reduce
+
+    For this one I will cheat a little bit by presenting 2 functions that do almost the same thing. _.get will return a property value from an object and _.set will, well you guessed it, set a property with a value. Nothing special except that you can access a property with its path.
+
+    ```js
+      var users = [
+        { name: "John", age: 30 },
+        { name: "Jane", age: 28 },
+        { name: "Bill", age: 65 },
+        { name: "Emily", age: 17 },
+        { name: "Jack", age: 30 }
+      ]
+
+      var reducedUsers = _.reduce(users, function (result, user) {
+          if(user.age >= 18 && user.age <= 59) {
+              (result[user.age] || (result[user.age] = [])).push(user);
+          }
+        
+          return result;
+      }, {});
+
+      // reducedUsers -> { 
+      //     28: [{ name: "Jane", age: 28 }], 
+      //     30: [{ name: "John", age: 30 }, { name: "Jack", age: 30 }] 
+      // }
+    ```
+
+8. _.cloneDeep
+
+    _.cloneDeep will clone an object. The new object will also have a new address in memory so you won’t crush a property from the original object.
+
+    ```js
+      var original = { foo: "bar" };
+      var copy = original;
+      copy.foo = "new value";
+      // copy -> { foo: "new value" } Yeah!
+      // original -> { foo: "new value" } Oops!
+
+      var original = { foo: "bar" };
+      var copy = _.cloneDeep(original);
+      copy.foo = "new value";
+      // copy -> { foo: "new value" } Yeah!
+      // original -> { foo: "bar" } Yeah!
+    ```
+
+9. _. sortedUniq
+
+    With this one, all duplicated values won’t be returned. This is usually used for performance reasons, because it is specifically for the sorted arrays.
+
+    ```js
+      var sortedArray = [1, 1, 2, 3, 3, 3, 5, 8, 8];
+      var result = _.sortedUniq(sortedArray);
+      // -> [1, 2, 3, 5, 8]
+    ```
+
+10. _.get and ._set
+
+    For this one I will cheat a little bit by presenting 2 functions that do almost the same thing. _.get will return a property value from an object and _.set will, well you guessed it, set a property with a value. Nothing special except that you can access a property with its path.
+
+    ```js
+      var bar = { foo: { key: "foo" } };
+      _.set(bar, "foo.items[0]", "An item");
+      // bar => { foo: { key: "foo", items: ["An item"] } }
+      var name = _.get(bar, "name", "John Doe");
+      // name => John Doe
+    ```
+
+11. _.get and ._set
+
+    For this one I will cheat a little bit by presenting 2 functions that do almost the same thing. _.get will return a property value from an object and _.set will, well you guessed it, set a property with a value. Nothing special except that you can access a property with its path.
+
+    ```js
+      var bar = { foo: { key: "foo" } };
+      _.set(bar, "foo.items[0]", "An item");
+      // bar => { foo: { key: "foo", items: ["An item"] } }
+      var name = _.get(bar, "name", "John Doe");
+      // name => John Doe
+    ```
 
 ### Comparison
 
