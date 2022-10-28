@@ -389,32 +389,32 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
         { id: "3abc", title: "The blog post we want", content: "..." }
       ];
       posts = _.keyBy(posts, "id");
-      /* posts: { 
-          "1abc": { id: "34abc", title: "The blog post we want", content: "..." },
-          "2abc": { id: "2abc", title: "Second blog post", content: "..." },
-          "3abc": { id: "3abc", title: "The blog post we want", content: "..." },
-        };  */
+      // posts: { 
+      //  "1abc": { id: "34abc", title: "The blog post we want", content: "..." },
+      //  "2abc": { id: "2abc", title: "Second blog post", content: "..." },
+      //  "3abc": { id: "3abc", title: "The blog post we want", content: "..." },
+      // };
     ```
 
-7. _.cloneDeep
+7. _.clone
+
+    Creates a shallow clone of value.
+    _Note: An empty object is returned for uncloneable values such as error objects, functions, DOM nodes, and WeakMaps._
+
+8. _.cloneDeep
 
     _.cloneDeep will clone an object. The new object will also have a new address in memory so you won’t crush a property from the original object.
 
     ```js
-      var original = { foo: "bar" };
-      var copy = original;
-      copy.foo = "new value";
-      // copy -> { foo: "new value" } Yeah!
-      // original -> { foo: "new value" } Oops!
-
-      var original = { foo: "bar" };
-      var copy = _.cloneDeep(original);
-      copy.foo = "new value";
-      // copy -> { foo: "new value" } Yeah!
-      // original -> { foo: "bar" } Yeah!
+      let original = { foo: [1, 2, 3] };
+      let shallowCopy = _.clone(original);
+      let deepCopy = _.cloneDeep(original);
+      original.foo[1] = 100;
+      // shallowCopy -> { foo: [1, 100, 3] } Yeah!
+      // deepCopy -> { foo: [1, 2, 3] } Yeah!
     ```
 
-8. _.sortedUniq
+9. _.sortedUniq
 
     With this one, all duplicated values won’t be returned. This is usually used for performance reasons, because it is specifically for the sorted arrays.
 
@@ -424,7 +424,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       // -> [1, 2, 3, 5, 8]
     ```
 
-9. _.filter
+10. _.filter
 
     Given that you want to show a list of fiction books, then:
 
@@ -433,18 +433,6 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       _.filter(books: function(book) {
         return book.genre === ‘fiction’ && book.price > 7.5;
       });
-    ```
-
-10. _.clone
-
-    When it comes to Lodash, this task turns out to be a piece of cake. For example, you want to create another book object with the same value of the given book:
-
-    ```js
-      let book = {
-        name: ‘JavaScript: The Good Parts’,
-        price: 13.5
-      };
-      let clonedBook = _.clone(book);
     ```
 
 11. _.isEqual
@@ -589,9 +577,10 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
 
 ### Comparison
 
-1. **_.filter() vs filter()**
+1. **_.filter() vs filter(), _.find() vs find()**
 
     In native-JS, filter() only accepts the second parameter as function while LoDash accepts JSON object type.
+    It is also similar for _.find() and find() in native-JS.
 
     ```js
       const users = [
@@ -599,8 +588,10 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
         { user: 'fred', age: 40, active: false },
       ];
 
-      console.log(_.filter(users, { age: 36, active: true })); // [ { user: 'barney', age: 36, active: true } ]
-      console.log(users.filter({ age: 36, active: true })); // TypeError: #<Object> is not a function
+      console.log(_.filter(users, { age: 36, active: true }));  // [{ user: 'barney', age: 36, active: true }]
+      console.log(_.find(users, { age: 36, active: true }));    //  { user: 'barney', age: 36, active: true }
+      console.log(users.filter({ age: 36, active: true }));   // TypeError: #<Object> is not a function
+      console.log(users.find({ age: 36, active: true }));     // TypeError: #<Object> is not a function
     ```
 
 2. **..., slice() vs _.clone(), _.deepClone(), _.assign()**
