@@ -25,7 +25,7 @@ My answer is written on the section [Quiz 1 Answer](#quiz-1-answer)
 
 ### Quiz 2 requirement
 
-In the seond task, I am required to write two files - **${\color{orange}Scale.js}$** and **${\color{orange}algo.js}$** in which:
+In the seond task, I am required to write three files - **${\color{orange}Scale.js}$**, **${\color{orange}algo.js}$** and **${\color{orange}algo2.js}$**  in which:
 
 - **${\color{orange}Scale.js}$** implements the class Scale that has 3 methods:
   - **${\color{lightblue}constructor()}$**: Initialize the class with an array include the weight of 12 coins, in which one is heavier or lighter than another.
@@ -35,6 +35,7 @@ In the seond task, I am required to write two files - **${\color{orange}Scale.js
   - **${\color{lightblue}checkResult(faultIndex, heavier)}$**: Take in the index of the fault coin and true if the fault coin is heavier, false if the fault coin is lighter. However, if the user use the function checkResult more than one time, the function will always return false.
 
 - **${\color{orange}algo.js}$** implements the function findFaultCoint that applys the optimized algorithm for solving the problem without accessing the private data of the Scale class.
+- **${\color{orange}algo2.js}$** is similar to file **${\color{orange}algo.js}$** but I can weigh two times.
 
 [back to top](#backend-quiz3)
 
@@ -662,6 +663,12 @@ _Below is how use can run my code in your computer._
     Node algo.js
     ```
 
-3. 1000 test cases for the problems are generated and the result is shown.
+3. Or you want to run the simplified version, run the command below.
+
+    ```sh
+    Node algo2.js
+    ```
+
+4. 1000 test cases for the problems are generated and the result is shown.
 
 [back to top](#backend-quiz3)
