@@ -265,7 +265,25 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       arr.reverse(); // arr: [200, 130, 8, 12, 5]
     ```
 
-24. **from()**
+24. **length**
+
+    Return the length of the array.
+
+    ```js
+      const arr = [5, 12, 8, 130, 200];
+      arr.length; // output: 5
+    ```
+
+25. **spread syntax (...)**
+
+    The spread syntax will make a shallow copy of each element from the original array.
+
+    ```js
+      const array = [5, 12, 8, 130, 200];
+      const newArr = [1, 2, 3, 4, ...array]; // newArr = [1, 2, 3, 4, 5, 12, 8, 130, 200]
+    ```
+
+26. **Array.from()**
 
     The Array.from() static method creates a new, shallow-copied Array instance from an iterable or array-like object.
 
@@ -277,7 +295,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       // expected output: Array [2, 4, 6]
     ```
 
-25. **of()**
+27. **Array.of()**
 
     The Array.of() method creates a new Array instance from a variable number of arguments, regardless of number or type of the arguments.
 
@@ -287,35 +305,24 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       Array.of(element0, element1, /* … ,*/ elementN)
     ```
 
-26. **length**
-
-    Return the length of the array.
-
-    ```js
-      const arr = [5, 12, 8, 130, 200];
-      arr.length; // output: 5
-    ```
-
-27. **spread syntax (...)**
-
-    The spread syntax will make a shallow copy of each element from the original array.
-
-    ```js
-      const array = [5, 12, 8, 130, 200];
-      const newArr = [1, 2, 3, 4, ...array]; // newArr = [1, 2, 3, 4, 5, 12, 8, 130, 200]
-    ```
-
 [back to top](#backend-quiz3)
 
 ### LoDash
 
 1. _.assign
 
-    _.assign is the equivalent of the spread operator from ES6. It’s pretty easy to understand, it assigns properties of one or many objects to a source object.
+    Assigns own enumerable string keyed properties of source objects to the destination object. Source objects are applied from left to right. Subsequent sources overwrite property assignments of previous sources.
 
     ```js
       const array = [5, 12, 8, 130, 200];
-      const newArr = [1, 2, 3, 4, ...array]; // newArr = [1, 2, 3, 4, 5, 12, 8, 130, 200]
+      const newArr = [1, 2, 3, 4];
+
+      array.abc = 1511;
+      array[[1, 2, 3, 5, 6]] = [1, 2, 3, 7];
+
+      const obj = Array(10);
+      array[obj] = [1, 2, 4]; // array: [5, 12, 8, 130, 200, abc: 1511, '1,2,3,5,6': [ 1, 2, 3, 7 ], ',,,,,,,,,': [ 1, 2, 4 ]]
+      _.assign(newArr, array); // newArr: [5, 12, 8, 130, 200, abc: 1511, '1,2,3,5,6': [ 1, 2, 3, 7 ], ',,,,,,,,,': [ 1, 2, 4 ]]
     ```
 
 2. _.times
@@ -323,30 +330,16 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
     _.times receives as arguments the number of iterations and a function to execute n times and returns an array of the results. Very useful when creating dynamic test data.
 
     ```js
-      function getRandomInteger() {
-        return Math.round(Math.random() * 100);
-      }
+      _.times(3, String);
+      // => ['0', '1', '2']
 
-      var result = _.times(5, getRandomNumber);
+      var result = _.times(5, Math.round(Math.random() * 100));
       // result => [64, 70, 29, 10, 23]
     ```
 
-3. _.debounce
+3. _.find
 
-    _.debounce will invoke a function after a certain amount of time since the last time it was invoked.
-
-    ```js
-      function validateEmail() {
-          // Validate email here and show error message if not valid
-      }
-
-      var emailInput = document.getElementById("email-field");
-      emailInput.addEventListener("keyup", _.debounce(validateEmail, 500));
-    ```
-
-4. _.find
-
-    Instead iterating through an array with a loop to find a specific object, we can simply use _.find. That’s nice, but this is not the only thing you can do with_.find. You can also find an object using multiple properties with a single line of code. Take a look!
+    Instead iterating through an array with a loop to find a specific object, we can simply use _.find. You can also find an object using multiple properties.
 
     ```js
       var users = [
@@ -365,65 +358,45 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       // underAgeUser -> { firstName: "Jane", lastName: "Doe", age: 5, gender: "female" }
     ```
 
-5. _.get and ._set
+4. _.get
 
-    For this one I will cheat a little bit by presenting 2 functions that do almost the same thing. _.get will return a property value from an object and_.set will, well you guessed it, set a property with a value. Nothing special except that you can access a property with its path.
+    Gets the value at path of object. If the resolved value is undefined, the defaultValue is returned in its place.
+
+    ```js
+      var bar = { foo: { key: "foo" } };
+      var name = _.get(bar, "name", "John Doe");
+      // name => John Doe
+    ```
+
+5. ._set
+
+    Sets the value at path of object. If a portion of path doesn't exist, it's created. Arrays are created for missing index properties while objects are created for all other missing properties.
 
     ```js
       var bar = { foo: { key: "foo" } };
       _.set(bar, "foo.items[0]", "An item");
       // bar => { foo: { key: "foo", items: ["An item"] } }
-      var name = _.get(bar, "name", "John Doe");
-      // name => John Doe
     ```
 
 6. _.keyBy
 
-    For this one I will cheat a little bit by presenting 2 functions that do almost the same thing. _.get will return a property value from an object and_.set will, well you guessed it, set a property with a value. Nothing special except that you can access a property with its path.
+    Creates an object composed of keys generated from the results of running each element of collection thru iteratee. The corresponding value of each key is the last element responsible for generating the key. The iteratee is invoked with one argument: (value).
 
     ```js
       var posts = [
         { id: "1abc", title: "First blog post", content: "..." },
         { id: "2abc", title: "Second blog post", content: "..." },
-        // more blog posts
-        { id: "34abc", title: "The blog post we want", content: "..." }
-        // even more blog posts
+        { id: "3abc", title: "The blog post we want", content: "..." }
       ];
-
       posts = _.keyBy(posts, "id");
-
-      var post = posts["34abc"]
-      // post -> { id: "34abc", title: "The blog post we want", content: "..." }
+      /* posts: { 
+          "1abc": { id: "34abc", title: "The blog post we want", content: "..." },
+          "2abc": { id: "2abc", title: "Second blog post", content: "..." },
+          "3abc": { id: "3abc", title: "The blog post we want", content: "..." },
+        };  */
     ```
 
-7. _.reduce
-
-    For this one I will cheat a little bit by presenting 2 functions that do almost the same thing. _.get will return a property value from an object and_.set will, well you guessed it, set a property with a value. Nothing special except that you can access a property with its path.
-
-    ```js
-      var users = [
-        { name: "John", age: 30 },
-        { name: "Jane", age: 28 },
-        { name: "Bill", age: 65 },
-        { name: "Emily", age: 17 },
-        { name: "Jack", age: 30 }
-      ]
-
-      var reducedUsers = _.reduce(users, function (result, user) {
-          if(user.age >= 18 && user.age <= 59) {
-              (result[user.age] || (result[user.age] = [])).push(user);
-          }
-        
-          return result;
-      }, {});
-
-      // reducedUsers -> { 
-      //     28: [{ name: "Jane", age: 28 }], 
-      //     30: [{ name: "John", age: 30 }, { name: "Jack", age: 30 }] 
-      // }
-    ```
-
-8. _.cloneDeep
+7. _.cloneDeep
 
     _.cloneDeep will clone an object. The new object will also have a new address in memory so you won’t crush a property from the original object.
 
@@ -441,7 +414,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       // original -> { foo: "bar" } Yeah!
     ```
 
-9. _.sortedUniq
+8. _.sortedUniq
 
     With this one, all duplicated values won’t be returned. This is usually used for performance reasons, because it is specifically for the sorted arrays.
 
@@ -451,7 +424,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       // -> [1, 2, 3, 5, 8]
     ```
 
-10. _.filter
+9. _.filter
 
     Given that you want to show a list of fiction books, then:
 
@@ -462,7 +435,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       });
     ```
 
-11. _.clone
+10. _.clone
 
     When it comes to Lodash, this task turns out to be a piece of cake. For example, you want to create another book object with the same value of the given book:
 
@@ -474,7 +447,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       let clonedBook = _.clone(book);
     ```
 
-12. _.isEqual
+11. _.isEqual
 
     What do you usually do if you want to compare two objects? Compare every single property or using JSON.stringify?
     Have you tried Lodash’s isEqual? You may not see the significant value of it until you have to handle deeply nested objects.
@@ -492,7 +465,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(_.isEqual(book1, book2)); // true
     ```
 
-13. _.pick
+12. _.pick
 
     This function is useful when you want to form a new object based on the properties of the existing object.
 
@@ -507,7 +480,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(newProduct); // { name: ‘Learning React Native, price: 15 }
     ```
 
-14. _.omit
+13. _.omit
 
     You can also excuse this task in an inverted manner by using omit function:
 
@@ -522,7 +495,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(newProduct); // { name: ‘Learning React Native, price: 15 }
     ```
 
-15. _.isEmpty
+14. _.isEmpty
 
     You use this function when you want to check if an object, a map, a collection, or a set is empty.
 
@@ -545,7 +518,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(_.isEmpty(undefinedBook)); // true;
     ```
 
-16. _.concat
+15. _.concat
 
     You can use concat method to merge arrays:
 
@@ -557,7 +530,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(mergedArray); // [1, 5, 3, 1, 7, 25, 21, 11, 3, 3, 2];
     ```
 
-17. _.union
+16. _.union
 
     In case you want the element’s values of the merged array to be unique, you can use union function:
 
@@ -566,7 +539,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
     ```
 
-18. _.Difference
+17. _.Difference
 
     The difference function will produce a new array of values that differ between the first and second arrays. It is vital to note that the locations of the arguments affect the outcomes.
 
@@ -575,16 +548,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
     ```
 
-19. _.get
-
-    The _.get() function can assist us in locating an element within an object. We can set a default value for the _.get() function to return if an element is not found at the supplied path. The _.get() function takes three parameters, the first of which is the object from which we wish to obtain an element. The path is the second. The third value is the default value we want to return if an element can not be located.
-
-    ```js
-      let mergedArray = _.union(array1, array2, array3);
-      console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
-    ```
-
-20. _.merge
+18. _.merge
 
     It functions similarly to Object.assign, except it recurses deep into the underlying structure to update the deeper objects rather than replacing them.
 
@@ -593,7 +557,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
     ```
 
-21. _.intersection
+19. _.intersection
 
     It functions similarly to Object.assign, except it recurses deep into the underlying structure to update the deeper objects rather than replacing them.
 
@@ -602,7 +566,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
     ```
 
-22. _.orderBy
+20. _.orderBy
 
     The orderBy method is similar to sortBy but it allows us to specify the descending or ascending sort order. For descending sort, we specify desc and for ascending we specify asc.
 
@@ -639,7 +603,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(users.filter({ age: 36, active: true })); // TypeError: #<Object> is not a function
     ```
 
-2. **..., slice() vs _.clone(), _.deepClone()**
+2. **..., slice() vs _.clone(), _.deepClone(), _.assign()**
 
     In native-JS, filter() only accepts the second parameter as function while LoDash accepts JSON object type.
 
@@ -653,7 +617,25 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(users.filter({ age: 36, active: true })); // TypeError: #<Object> is not a function
     ```
 
-3. **..., concat(), _.concat(), _.union()**
+3. **..., concat() vs _.concat(), _.union()**
+
+    Both of them all create a shallow copy for the elements and only work with iterable elements.
+
+    ```js
+      const arr = [1, 2, 3];
+      arr.abc = "This is not iterable!"; // arr: [1, 2, 3, abc: 'This is not iterable!']
+      let newArr = [1, ...arr];     // newArr: arr: [1, 1, 2, 3]
+      newArr = [1].concat(arr);     // newArr: arr: [1, 1, 2, 3]
+      newArr = [1].concat(1, 2, 3); // newArr: arr: [1, 1, 2, 3]
+      newArr = _.concat([1], arr);  // newArr: arr: [1, 1, 2, 3]
+      newArr = _.union([1], arr);   // newArr: arr: [1, 2, 3]
+    ```
+
+4. **_.reduce vs reduce(), _.map() vs map(), _.reduceRight vs reduceRight(), _.concat() vs concat()**
+
+    Those functions in LoDash and JS-native are the same, so if it's unnecessary to download LoDash for those functions only.
+
+5. **_.reduce vs reduce()**
 
     In native-JS, filter() only accepts the second parameter as function while LoDash accepts JSON object type.
 
