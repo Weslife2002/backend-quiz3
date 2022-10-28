@@ -25,7 +25,7 @@ My answer is written on the section [Quiz 1 Answer](#quiz-1-answer)
 
 ### Quiz 2 requirement
 
-In the seond task, I am required to write three files - **${\color{orange}Scale.js}$**, **${\color{orange}algo.js}$** and **${\color{orange}algo2.js}$**  in which:
+In the seond task, I am required to write three files - **${\color{orange}Scale.js}$**, **${\color{orange}algo.js}$** and **${\color{orange}algo2.js}$** (or **${\color{orange}algo2.js}$**)  in which:
 
 - **${\color{orange}Scale.js}$** implements the class Scale that has 3 methods:
   - **${\color{lightblue}constructor()}$**: Initialize the class with an array include the weight of 12 coins, in which one is heavier or lighter than another.
@@ -35,7 +35,8 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
   - **${\color{lightblue}checkResult(faultIndex, heavier)}$**: Take in the index of the fault coin and true if the fault coin is heavier, false if the fault coin is lighter. However, if the user use the function checkResult more than one time, the function will always return false.
 
 - **${\color{orange}algo.js}$** implements the function findFaultCoint that applys the optimized algorithm for solving the problem without accessing the private data of the Scale class.
-- **${\color{orange}algo2.js}$** is similar to file **${\color{orange}algo.js}$** but I can weigh two times.
+- **${\color{orange}algo2.js}$** is similar to file **${\color{orange}algo.js}$** but I can weigh four times.
+- **${\color{orange}algo3.js}$** is also weigh four times but the source code is the easiest to understand.
 
 [back to top](#backend-quiz3)
 
@@ -313,20 +314,17 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
 
 ### LoDash
 
-1. _.assign
+1. \_.assign and \_.extend
 
     Assigns own enumerable string keyed properties of source objects to the destination object. Source objects are applied from left to right. Subsequent sources overwrite property assignments of previous sources.
 
     ```js
-      const array = [5, 12, 8, 130, 200];
-      const newArr = [1, 2, 3, 4];
-
-      array.abc = 1511;
-      array[[1, 2, 3, 5, 6]] = [1, 2, 3, 7];
-
-      const obj = Array(10);
-      array[obj] = [1, 2, 4]; // array: [5, 12, 8, 130, 200, abc: 1511, '1,2,3,5,6': [ 1, 2, 3, 7 ], ',,,,,,,,,': [ 1, 2, 4 ]]
-      _.assign(newArr, array); // newArr: [5, 12, 8, 130, 200, abc: 1511, '1,2,3,5,6': [ 1, 2, 3, 7 ], ',,,,,,,,,': [ 1, 2, 4 ]]
+      const object = [{ b: [{ a: '5' }, 6, 100, 89] }, { e: 4 }];
+      const other = [{ c: { b: [1, 2, 3] } }, { e: 5 }, { f: 100 }];
+      _.assign(object, other);  // [{ c: { b: [1, 2, 3] } }, { e: 5 }, { f: 100 }]
+      object[0] === other[0];   // true
+      _.extend(object, other);  // [{ c: { b: [1, 2, 3] } }, { e: 5 }, { f: 100 }]
+      object[0] === other[0];   // true
     ```
 
 2. _.merge
@@ -334,18 +332,18 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
     This method is like _.assign except that it recursively merges own and inherited enumerable string keyed properties of source objects into the destination object. Source properties that resolve to undefined are skipped if a destination value exists. Array and plain object properties are merged recursively. Other objects and value types are overridden by assignment. Source objects are applied from left to right. Subsequent sources overwrite property assignments of previous sources.
 
     ```js
-      let mergedArray = _.union(array1, array2, array3);  // mergedArray: [1, 5, 3, 7, 25, 21, 11, 2]
+      let object = {
+        a: [{ c: [{ a: '5' }, 6, 100, 89] }, { e: 4 }],
+      };
+
+      let other = {
+        a: [{ c: [1, 2, 3] }, { e: 5 }, { f: 100 }],
+      };
+      _.merge(object, other);   // { a: [{ c: [1, 2, 3, 89] }, { e: 5 }, { f: 100 }] }
+      _.assign(object, other);  // { a: [{ c: [1, 2, 3] }, { e: 5 }, { f: 100 }] }
     ```
 
-3. _.extend
-
-    It functions similarly to Object.assign, except it recurses deep into the underlying structure to update the deeper objects rather than replacing them.
-
-    ```js
-      let mergedArray = _.union(array1, array2, array3);  // mergedArray: [1, 5, 3, 7, 25, 21, 11, 2]
-    ```
-
-4. _.concat
+3. _.concat
 
     This method is used to merge arrays with other arrays or add variable or even create new array from variable.
 
@@ -357,7 +355,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       const newProduct = _.concat(1, ['category', 'discount']); // newProduct: [1, 'category', 'discount']
     ```
 
-5. _.times
+4. _.times
 
     _.times receives as arguments the number of iterations and a function to execute n times and returns an array of the results. Very useful when creating dynamic test data.
 
@@ -369,7 +367,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // result => [64, 70, 29, 10, 23]
     ```
 
-6. _.find
+5. _.find
 
     Instead iterating through an array with a loop to find a specific object, we can simply use _.find. You can also find an object using multiple properties.
 
@@ -390,7 +388,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // underAgeUser -> { firstName: "Jane", lastName: "Doe", age: 5, gender: "female" }
     ```
 
-7. _.get
+6. _.get
 
     Gets the value at path of object. If the resolved value is undefined, the defaultValue is returned in its place.
 
@@ -400,7 +398,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // name => John Doe
     ```
 
-8. _.set
+7. _.set
 
     Sets the value at path of object. If a portion of path doesn't exist, it's created. Arrays are created for missing index properties while objects are created for all other missing properties.
 
@@ -410,30 +408,12 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // bar => { foo: { key: "foo", items: ["An item"] } }
     ```
 
-9. _.keyBy
-
-    Creates an object composed of keys generated from the results of running each element of collection thru iteratee. The corresponding value of each key is the last element responsible for generating the key. The iteratee is invoked with one argument: (value).
-
-    ```js
-      var posts = [
-        { id: "1abc", title: "First blog post", content: "..." },
-        { id: "2abc", title: "Second blog post", content: "..." },
-        { id: "3abc", title: "The blog post we want", content: "..." }
-      ];
-      posts = _.keyBy(posts, "id");
-      // posts: { 
-      //  "1abc": { id: "34abc", title: "The blog post we want", content: "..." },
-      //  "2abc": { id: "2abc", title: "Second blog post", content: "..." },
-      //  "3abc": { id: "3abc", title: "The blog post we want", content: "..." },
-      // };
-    ```
-
-10. _.clone
+8. _.clone
 
     Creates a shallow clone of value.
     _Note: An empty object is returned for uncloneable values such as error objects, functions, DOM nodes, and WeakMaps._
 
-11. _.cloneDeep
+9.  _.cloneDeep
 
     _.cloneDeep will clone an object. The new object will also have a new address in memory so you won’t crush a property from the original object.
 
@@ -446,7 +426,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // deepCopy -> { foo: [1, 2, 3] } Yeah!
     ```
 
-12. _.sortedUniq and \_.uniq
+10. _.sortedUniq and \_.uniq
 
     With \_.sortedUniq, similar to \_.uniq when all duplicated values won’t be returned. However \_.sortedUniq is usually used for performance reasons, because it is specifically for the sorted arrays.
 
@@ -456,7 +436,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // -> [1, 2, 3, 5, 8]
     ```
 
-13. _.filter
+11. _.filter
 
     Iterates over elements of collection, returning an array of all elements predicate returns truthy for. The predicate is invoked with three arguments: (value, index|key, collection).
 
@@ -470,7 +450,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // output: [{ 'user': 'fred',   'age': 40, 'active': false }]
     ```
 
-14. _.isEqual
+12. _.isEqual
 
     Performs a deep comparison between two values to determine if they are equivalent.
 
@@ -490,7 +470,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
     _Note: Two objects are never the same even if they have the same content, as two different instances of Object is never equal._
     _When comparing two object, JavaScript compares internal references which are equal only when both operands refer to the same object in memory, keys and values are not checked, so the content of the object doesn't matter, the operands both have to reference the same object to return true in a comparison._
 
-15. _.pick
+13. _.pick
 
     _.pick function is useful when you want to form a new object based on the properties of the existing object.
 
@@ -505,7 +485,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // newProduct: { name: ‘Learning React Native, price: 15 }
     ```
 
-16. _.omit
+14. _.omit
 
     _.omit can be used to create a new project that doesn't have some properties of the existing object.
     _Note: the new obj is a shallow copy of the existing one only.
@@ -521,7 +501,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // newProduct: { name: ‘Learning React Native, price: 15 }
     ```
 
-17. _.isEmpty
+15. _.isEmpty
 
     This function checks if an object, a map, a collection, or a set is empty.
 
@@ -532,7 +512,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       console.log(_.isEmpty(book2)); // false;
     ```
 
-18. _.union
+16. _.union
 
     This function create a new array from the element’s the unique values.
 
@@ -540,7 +520,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       let mergedArray = _.union(array1, array2, array3);  // mergedArray: [1, 5, 3, 7, 25, 21, 11, 2]
     ```
 
-19. _.difference
+17. _.difference
 
     The difference function will produce a new array of values that is in the first array but not in the second arrays.
 
@@ -548,7 +528,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       let mergedArray = _.union(array1, array2, array3);  // mergedArray: [1, 5, 3, 7, 25, 21, 11, 2]
     ```
 
-20. _.intersection
+18. _.intersection
 
     It functions similarly to Object.assign, except it recurses deep into the underlying structure to update the deeper objects rather than replacing them.
 
@@ -557,7 +537,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
     ```
 
-21. _.orderBy
+19. _.orderBy
 
     The orderBy method is similar to sortBy but it allows us to specify the descending or ascending sort order. For descending sort, we specify desc and for ascending we specify asc.
 
@@ -574,6 +554,24 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
 
       // sort by user in ascending order and age by descending order
       console.log(_.orderBy(users, ['user', 'age'], ['asc', 'desc']));
+    ```
+
+21. _.keyBy
+
+    Creates an object composed of keys generated from the results of running each element of collection thru iteratee. The corresponding value of each key is the last element responsible for generating the key. The iteratee is invoked with one argument: (value).
+
+    ```js
+      var posts = [
+        { id: "1abc", title: "First blog post", content: "..." },
+        { id: "2abc", title: "Second blog post", content: "..." },
+        { id: "3abc", title: "The blog post we want", content: "..." }
+      ];
+      posts = _.keyBy(posts, "id");
+      // posts: { 
+      //  "1abc": { id: "34abc", title: "The blog post we want", content: "..." },
+      //  "2abc": { id: "2abc", title: "Second blog post", content: "..." },
+      //  "3abc": { id: "3abc", title: "The blog post we want", content: "..." },
+      // };
     ```
 
 [back to top](#backend-quiz3)
@@ -597,7 +595,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       console.log(users.find({ age: 36, active: true }));     // TypeError: #<Object> is not a function
     ```
 
-2. **..., slice() vs _.clone(), _.deepClone(), _.assign()**
+2. **..., slice() vs _.clone(), _.deepClone(), _.assign(), _.merge(), _.extend()**
 
     In native-JS, filter() only accepts the second parameter as function while LoDash accepts JSON object type.
 
@@ -628,20 +626,6 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
 4. **_.reduce vs reduce(), _.map() vs map(), _.reduceRight vs reduceRight(), _.concat() vs concat()**
 
     Those functions in LoDash and JS-native are the same, so if it's unnecessary to download LoDash for those functions only.
-
-5. **_.reduce vs reduce()**
-
-    In native-JS, filter() only accepts the second parameter as function while LoDash accepts JSON object type.
-
-    ```js
-      const users = [
-        { user: 'barney', age: 36, active: true },
-        { user: 'fred', age: 40, active: false },
-      ];
-
-      console.log(_.filter(users, { age: 36, active: true })); // [ { user: 'barney', age: 36, active: true } ]
-      console.log(users.filter({ age: 36, active: true })); // TypeError: #<Object> is not a function
-    ```
 
 [back to top](#backend-quiz3)
 
