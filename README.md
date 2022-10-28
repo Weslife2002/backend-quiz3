@@ -509,11 +509,10 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
 
 18. _.intersection
 
-    It functions similarly to Object.assign, except it recurses deep into the underlying structure to update the deeper objects rather than replacing them.
+    Creates an array of unique values that are included in all given arrays using SameValueZero for equality comparisons. The order and references of result values are determined by the first array.
 
     ```js
-      let mergedArray = _.union(array1, array2, array3);
-      console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
+      _.intersection([2, 1], [2, 3]); // => [2]
     ```
 
 19. _.orderBy
@@ -527,12 +526,9 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
         { 'user': 'fred',   'age': 40 },
         { 'user': 'barney', 'age': 34 }
       ];
-
-      // sort by user in descending order
-      console.log(_.orderBy(users, ['user'], ['desc']));
-
       // sort by user in ascending order and age by descending order
       console.log(_.orderBy(users, ['user', 'age'], ['asc', 'desc']));
+      // [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
     ```
 
 20. _.keyBy
@@ -547,7 +543,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       ];
       posts = _.keyBy(posts, "id");
       // posts: { 
-      //  "1abc": { id: "34abc", title: "The blog post we want", content: "..." },
+      //  "1abc": { id: "1abc", title: "The blog post we want", content: "..." },
       //  "2abc": { id: "2abc", title: "Second blog post", content: "..." },
       //  "3abc": { id: "3abc", title: "The blog post we want", content: "..." },
       // };
@@ -557,10 +553,9 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
 
 ### Comparison
 
-1. **_.filter() vs filter(), _.find() vs find()**
+1. **_.filter vs filter(), _.find vs find()**
 
-    In native-JS, filter() only accepts the second parameter as function while LoDash accepts JSON object type.
-    It is also similar for _.find() and find() in native-JS.
+    In native-JS, filter() only accepts the second parameter as function while \_.filter accepts JSON object type. It is also similar for \_.find and find() in native-JS.
 
     ```js
       const users = [
@@ -574,9 +569,9 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       console.log(users.find({ age: 36, active: true }));     // TypeError: #<Object> is not a function
     ```
 
-2. **..., slice() vs _.clone(), _.deepClone(), _.assign(), _.merge(), _.extend()**
+2. **..., slice() vs _.clone, _.deepClone**
 
-    In native-JS, filter() only accepts the second parameter as function while LoDash accepts JSON object type.
+    ..., slice(), \_.clone shallows copy the iterable elements in the object. \_deepClone recursively deep copies all the elements in the object.
 
     ```js
       const users = [
@@ -588,9 +583,9 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       console.log(users.filter({ age: 36, active: true })); // TypeError: #<Object> is not a function
     ```
 
-3. **..., concat() vs _.concat(), _.union()**
+3. **..., concat() vs _.concat, _.union**
 
-    Both of them all create a shallow copy for the elements and only work with iterable elements.
+    All of them all create a shallow copy for the elements and only work with iterable elements.
 
     ```js
       const arr = [1, 2, 3];
@@ -602,7 +597,20 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       newArr = _.union([1], arr);   // newArr: arr: [1, 2, 3]
     ```
 
-4. **_.reduce vs reduce(), _.map() vs map(), _.reduceRight vs reduceRight(), _.concat() vs concat()**
+4. **_.assign _.merge, _.extend**
+
+    The \_.assign() and \_.extend are similar to each other while \_.merge does those steps recursively.
+
+    ```js
+      const object = { b: [{ a: '5' }, 6, 100, 89], e: 4 };
+      const other = { b: { b: [1, 2, 3] }, e: 5, f: 100 };
+
+      _.merge(object, other);   // { b: [ { a: '5' }, 6, 100, 89, b: [ 1, 2, 3 ] ], e: 5, f: 100 }
+      _.assign(object, other);  // { b: { b: [ 1, 2, 3 ] }, e: 5, f: 100 }
+      _.extend(object, other);  // { b: { b: [ 1, 2, 3 ] }, e: 5, f: 100 }
+    ```
+
+5. **_.reduce vs reduce(), _.map vs map(), _.reduceRight vs reduceRight(), _.concat vs concat()**
 
     Those functions in LoDash and JS-native are the same, so if it's unnecessary to download LoDash for those functions only.
 
