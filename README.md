@@ -25,13 +25,16 @@ My answer is written on the section [Quiz 1 Answer](#quiz-1-answer)
 
 ### Quiz 2 requirement
 
-In the seond task, I am required to write two files - Scale.js and main.js in which:
+In the seond task, I am required to write two files - **${\color{orange}Scale.js}$** and **${\color{orange}algo.js}$** in which:
 
-- **Scale.js** implements the class Scale that has 3 methods:
-  - **constructor()**: Initialize the class with an array include the weight of 12 coins, in which one is heavier or lighter than another.
-  - **weigh(left, right)**: Take in two array contains coins' index and return 1 if the left is hevier than the right, 2 if the left is equals to the right and 3 for the last case.
-  - **checkResult(faultIndex, heavier)**: Take in the index of the fault coin and true if the fault coin is heavier, false if the fault coin is lighter. However, if the user use the function checkResult more than one time, the function will always return false.
-- **algo.js** implements the function findFaultCoint that applys the optimized algorithm for solving the problem without accessing the private data of the Scale class.
+- **${\color{orange}Scale.js}$** implements the class Scale that has 3 methods:
+  - **${\color{lightblue}constructor()}$**: Initialize the class with an array include the weight of 12 coins, in which one is heavier or lighter than another.
+
+  - **${\color{lightblue}weigh(left, right)}$**: Take in two array contains coins' index and return 1 if the left is hevier than the right, 2 if the left is equals to the right and 3 for the last case.
+
+  - **${\color{lightblue}checkResult(faultIndex, heavier)}$**: Take in the index of the fault coin and true if the fault coin is heavier, false if the fault coin is lighter. However, if the user use the function checkResult more than one time, the function will always return false.
+
+- **${\color{orange}algo.js}$** implements the function findFaultCoint that applys the optimized algorithm for solving the problem without accessing the private data of the Scale class.
 
 [back to top](#backend-quiz3)
 
@@ -325,7 +328,35 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       _.assign(newArr, array); // newArr: [5, 12, 8, 130, 200, abc: 1511, '1,2,3,5,6': [ 1, 2, 3, 7 ], ',,,,,,,,,': [ 1, 2, 4 ]]
     ```
 
-2. _.times
+2. _.merge
+
+    This method is like _.assign except that it recursively merges own and inherited enumerable string keyed properties of source objects into the destination object. Source properties that resolve to undefined are skipped if a destination value exists. Array and plain object properties are merged recursively. Other objects and value types are overridden by assignment. Source objects are applied from left to right. Subsequent sources overwrite property assignments of previous sources.
+
+    ```js
+      let mergedArray = _.union(array1, array2, array3);  // mergedArray: [1, 5, 3, 7, 25, 21, 11, 2]
+    ```
+
+3. _.extend
+
+    It functions similarly to Object.assign, except it recurses deep into the underlying structure to update the deeper objects rather than replacing them.
+
+    ```js
+      let mergedArray = _.union(array1, array2, array3);  // mergedArray: [1, 5, 3, 7, 25, 21, 11, 2]
+    ```
+
+4. _.concat
+
+    This method is used to merge arrays with other arrays or add variable or even create new array from variable.
+
+    ```js
+      let array1 = [1, 5, 3, 1];
+      let array2 = [7, 25, 21];
+      let array3 = [11, 3, 3, 2];
+      let mergedArray = _.concat(array1, array2, array3); // mergedArray: [1, 5, 3, 1, 7, 25, 21, 11, 3, 3, 2]
+      const newProduct = _.concat(1, ['category', 'discount']); // newProduct: [1, 'category', 'discount']
+    ```
+
+5. _.times
 
     _.times receives as arguments the number of iterations and a function to execute n times and returns an array of the results. Very useful when creating dynamic test data.
 
@@ -337,7 +368,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       // result => [64, 70, 29, 10, 23]
     ```
 
-3. _.find
+6. _.find
 
     Instead iterating through an array with a loop to find a specific object, we can simply use _.find. You can also find an object using multiple properties.
 
@@ -358,7 +389,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       // underAgeUser -> { firstName: "Jane", lastName: "Doe", age: 5, gender: "female" }
     ```
 
-4. _.get
+7. _.get
 
     Gets the value at path of object. If the resolved value is undefined, the defaultValue is returned in its place.
 
@@ -368,7 +399,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       // name => John Doe
     ```
 
-5. ._set
+8. _.set
 
     Sets the value at path of object. If a portion of path doesn't exist, it's created. Arrays are created for missing index properties while objects are created for all other missing properties.
 
@@ -378,7 +409,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       // bar => { foo: { key: "foo", items: ["An item"] } }
     ```
 
-6. _.keyBy
+9. _.keyBy
 
     Creates an object composed of keys generated from the results of running each element of collection thru iteratee. The corresponding value of each key is the last element responsible for generating the key. The iteratee is invoked with one argument: (value).
 
@@ -396,12 +427,12 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       // };
     ```
 
-7. _.clone
+10. _.clone
 
     Creates a shallow clone of value.
     _Note: An empty object is returned for uncloneable values such as error objects, functions, DOM nodes, and WeakMaps._
 
-8. _.cloneDeep
+11. _.cloneDeep
 
     _.cloneDeep will clone an object. The new object will also have a new address in memory so you won’t crush a property from the original object.
 
@@ -414,9 +445,9 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       // deepCopy -> { foo: [1, 2, 3] } Yeah!
     ```
 
-9. _.sortedUniq
+12. _.sortedUniq and \_.uniq
 
-    With this one, all duplicated values won’t be returned. This is usually used for performance reasons, because it is specifically for the sorted arrays.
+    With \_.sortedUniq, similar to \_.uniq when all duplicated values won’t be returned. However \_.sortedUniq is usually used for performance reasons, because it is specifically for the sorted arrays.
 
     ```js
       var sortedArray = [1, 1, 2, 3, 3, 3, 5, 8, 8];
@@ -424,38 +455,43 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       // -> [1, 2, 3, 5, 8]
     ```
 
-10. _.filter
+13. _.filter
 
-    Given that you want to show a list of fiction books, then:
+    Iterates over elements of collection, returning an array of all elements predicate returns truthy for. The predicate is invoked with three arguments: (value, index|key, collection).
 
     ```js
-      _.filter(books: { genre: ‘fiction’ });
-      _.filter(books: function(book) {
-        return book.genre === ‘fiction’ && book.price > 7.5;
-      });
+      const users = [
+        { 'user': 'barney', 'age': 36, 'active': true },
+        { 'user': 'fred',   'age': 40, 'active': false }
+      ];
+      
+      _.filter(users, function(o) { return !o.active; });
+      // output: [{ 'user': 'fred',   'age': 40, 'active': false }]
     ```
 
-11. _.isEqual
+14. _.isEqual
 
-    What do you usually do if you want to compare two objects? Compare every single property or using JSON.stringify?
-    Have you tried Lodash’s isEqual? You may not see the significant value of it until you have to handle deeply nested objects.
-    With just a simple call, isEqual will take the comparison to the deep level.
+    Performs a deep comparison between two values to determine if they are equivalent.
 
     ```js
-      let book1 = {
+      const book1 = {
         name: ‘JavaScript: The Good Parts’,
         price: 13.5
       };
-      let book2 = {
+      const book2 = {
         name: ‘JavaScript: The Good Parts’,
         price: 13.5
       };
-      console.log(_.isEqual(book1, book2)); // true
+      _.isEqual(book1, book2); // true
+      book1 === book2 // false
     ```
 
-12. _.pick
+    _Note: Two objects are never the same even if they have the same content, as two different instances of Object is never equal._
+    _When comparing two object, JavaScript compares internal references which are equal only when both operands refer to the same object in memory, keys and values are not checked, so the content of the object doesn't matter, the operands both have to reference the same object to return true in a comparison._
 
-    This function is useful when you want to form a new object based on the properties of the existing object.
+15. _.pick
+
+    _.pick function is useful when you want to form a new object based on the properties of the existing object.
 
     ```js
       let product = {
@@ -465,12 +501,13 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
         discount: 0.3
       };
       let newProduct = _.pick(product, [‘name’, ‘price’]);
-      console.log(newProduct); // { name: ‘Learning React Native, price: 15 }
+      // newProduct: { name: ‘Learning React Native, price: 15 }
     ```
 
-13. _.omit
+16. _.omit
 
-    You can also excuse this task in an inverted manner by using omit function:
+    _.omit can be used to create a new project that doesn't have some properties of the existing object.
+    _Note: the new obj is a shallow copy of the existing one only.
 
     ```js
       let product = {
@@ -480,63 +517,37 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
         discount: 0.3
       };
       let newProduct = _.omit(product, [category, discount]);
-      console.log(newProduct); // { name: ‘Learning React Native, price: 15 }
+      // newProduct: { name: ‘Learning React Native, price: 15 }
     ```
 
-14. _.isEmpty
+17. _.isEmpty
 
-    You use this function when you want to check if an object, a map, a collection, or a set is empty.
+    This function checks if an object, a map, a collection, or a set is empty.
 
     ```js
       let book1 = {};
       console.log(_.isEmpty(book1)); // true;
       let book2 = { name: ‘Learning JavaScript };
       console.log(_.isEmpty(book2)); // false;
-      let books1 = [{
-        name: ‘Learning JavaScript’
-      }, {
-        name: ‘Learning React Native’
-      }];
-      console.log(_.isEmpty(books1)); // false;
-      let books2 = [];
-      console.log(_.isEmpty(books2)); // true;
-      let nullBook = null;
-      console.log(_.isEmpty(nullBook)); // true;
-      let undefinedBook = undefined;
-      console.log(_.isEmpty(undefinedBook)); // true;
     ```
 
-15. _.concat
+18. _.union
 
-    You can use concat method to merge arrays:
+    This function create a new array from the element’s the unique values.
 
     ```js
-      let array1 = [1, 5, 3, 1];
-      let array2 = [7, 25, 21];
-      let array3 = [11, 3, 3, 2];
-      let mergedArray = _.concat(array1, array2, array3);
-      console.log(mergedArray); // [1, 5, 3, 1, 7, 25, 21, 11, 3, 3, 2];
+      let mergedArray = _.union(array1, array2, array3);  // mergedArray: [1, 5, 3, 7, 25, 21, 11, 2]
     ```
 
-16. _.union
+19. _.difference
 
-    In case you want the element’s values of the merged array to be unique, you can use union function:
+    The difference function will produce a new array of values that is in the first array but not in the second arrays.
 
     ```js
-      let mergedArray = _.union(array1, array2, array3);
-      console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
+      let mergedArray = _.union(array1, array2, array3);  // mergedArray: [1, 5, 3, 7, 25, 21, 11, 2]
     ```
 
-17. _.Difference
-
-    The difference function will produce a new array of values that differ between the first and second arrays. It is vital to note that the locations of the arguments affect the outcomes.
-
-    ```js
-      let mergedArray = _.union(array1, array2, array3);
-      console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
-    ```
-
-18. _.merge
+20. _.intersection
 
     It functions similarly to Object.assign, except it recurses deep into the underlying structure to update the deeper objects rather than replacing them.
 
@@ -545,16 +556,7 @@ In the seond task, I am required to write two files - Scale.js and main.js in wh
       console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
     ```
 
-19. _.intersection
-
-    It functions similarly to Object.assign, except it recurses deep into the underlying structure to update the deeper objects rather than replacing them.
-
-    ```js
-      let mergedArray = _.union(array1, array2, array3);
-      console.log(mergedArray); // [1, 5, 3, 7, 25, 21, 11, 2]
-    ```
-
-20. _.orderBy
+21. _.orderBy
 
     The orderBy method is similar to sortBy but it allows us to specify the descending or ascending sort order. For descending sort, we specify desc and for ascending we specify asc.
 
