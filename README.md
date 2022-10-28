@@ -25,7 +25,7 @@ My answer is written on the section [Quiz 1 Answer](#quiz-1-answer)
 
 ### Quiz 2 requirement
 
-In the seond task, I am required to write three files - **${\color{orange}Scale.js}$**, **${\color{orange}algo.js}$** and **${\color{orange}algo2.js}$** (or **${\color{orange}algo2.js}$**)  in which:
+In the seond task, I am required to write three files - **${\color{orange}Scale.js}$**, **${\color{orange}algo.js}$** and **${\color{orange}algo2.js}$** (or **${\color{orange}algo3.js}$**)  in which:
 
 - **${\color{orange}Scale.js}$** implements the class Scale that has 3 methods:
   - **${\color{lightblue}constructor()}$**: Initialize the class with an array include the weight of 12 coins, in which one is heavier or lighter than another.
@@ -288,28 +288,6 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       const newArr = [1, 2, 3, 4, ...array]; // newArr = [1, 2, 3, 4, 5, 12, 8, 130, 200]
     ```
 
-26. **Array.from()**
-
-    The Array.from() static method creates a new, shallow-copied Array instance from an iterable or array-like object.
-
-    ```js
-      console.log(Array.from('foo'));
-      // expected output: Array ["f", "o", "o"]
-
-      console.log(Array.from([1, 2, 3], x => x + x));
-      // expected output: Array [2, 4, 6]
-    ```
-
-27. **Array.of()**
-
-    The Array.of() method creates a new Array instance from a variable number of arguments, regardless of number or type of the arguments.
-
-    ```js
-      Array.of(element0)
-      Array.of(element0, element1)
-      Array.of(element0, element1, /* … ,*/ elementN)
-    ```
-
 [back to top](#backend-quiz3)
 
 ### LoDash
@@ -413,7 +391,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
     Creates a shallow clone of value.
     _Note: An empty object is returned for uncloneable values such as error objects, functions, DOM nodes, and WeakMaps._
 
-9.  _.cloneDeep
+9. _.cloneDeep
 
     _.cloneDeep will clone an object. The new object will also have a new address in memory so you won’t crush a property from the original object.
 
@@ -488,7 +466,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
 14. _.omit
 
     _.omit can be used to create a new project that doesn't have some properties of the existing object.
-    _Note: the new obj is a shallow copy of the existing one only.
+    _Note: the new obj is a shallow copy of the existing one only._
 
     ```js
       let product = {
@@ -517,7 +495,8 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
     This function create a new array from the element’s the unique values.
 
     ```js
-      let mergedArray = _.union(array1, array2, array3);  // mergedArray: [1, 5, 3, 7, 25, 21, 11, 2]
+      let unitedArray = _.union([1, 5 , 3 , 11, 2], [3, 7, 11], [25, 21, 2]);  
+      // unitedArray: [1, 5, 3, 7, 25, 21, 11, 2]
     ```
 
 17. _.difference
@@ -525,7 +504,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
     The difference function will produce a new array of values that is in the first array but not in the second arrays.
 
     ```js
-      let mergedArray = _.union(array1, array2, array3);  // mergedArray: [1, 5, 3, 7, 25, 21, 11, 2]
+      _.difference([2, 1], [2, 3]); // => [1]
     ```
 
 18. _.intersection
@@ -556,7 +535,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       console.log(_.orderBy(users, ['user', 'age'], ['asc', 'desc']));
     ```
 
-21. _.keyBy
+20. _.keyBy
 
     Creates an object composed of keys generated from the results of running each element of collection thru iteratee. The corresponding value of each key is the last element responsible for generating the key. The iteratee is invoked with one argument: (value).
 
