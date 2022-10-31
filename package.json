@@ -5,7 +5,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/test.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/Weslife2002/backend-quiz3/issues"
   },
-  "homepage": "https://github.com/Weslife2002/backend-quiz3#readme"
+  "homepage": "https://github.com/Weslife2002/backend-quiz3#readme",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "ejs": "^3.1.8",
+    "lodash": "^4.17.21",
+    "mocha": "^10.1.0"
+  }
 }
