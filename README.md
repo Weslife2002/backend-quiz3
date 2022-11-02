@@ -9,9 +9,14 @@
     - [Quiz 1 requirement](#quiz-1-requirement)
     - [Quiz 2 requirement](#quiz-2-requirement)
   - [Quiz 1 Answer](#quiz-1-answer)
-    - [JS native](#js-native)
-    - [LoDash](#lodash)
-    - [Comparison](#comparison)
+    - [Array](#array)
+      - [JS-native Array](#js-native-array)
+      - [LoDash Array](#lodash-array)
+      - [Comparison JS-native Array vs LoDash Array](#comparison-js-native-array-vs-lodash-array)
+    - [Object](#object)
+      - [JS-Native Object](#js-native-object)
+      - [LoDash Object](#lodash-object)
+      - [JS-Native Object vs LoDash Object](#js-native-object-vs-lodash-object)
   - [Quiz 2](#quiz-2)
     - [Set up and run](#set-up-and-run)
 
@@ -43,7 +48,9 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
 <!-- GETTING STARTED -->
 ## Quiz 1 Answer
 
-### JS native
+### Array
+
+#### JS-native Array
 
 1. **push()**
 
@@ -290,7 +297,281 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
 
 [back to top](#backend-quiz3)
 
-### LoDash
+#### LoDash Array
+
+1. \_.compact
+
+    Remove all false, null, 0, "", undefined values and NaN from the original array.
+
+    ```js
+      const arr = [1, '', 2];
+      console.log(_.compact(arr)); // output: [1, 2] 
+      // arr : [1, '', 2]
+    ```
+
+2. \_.without
+
+    Remove all false, null, 0, "", undefined values and NaN from the original array.
+
+    ```js
+      const arr = [1, '', 2];
+      console.log(_.compact(arr)); // output: [1, 2] 
+      // arr : [1, '', 2]
+    ```
+
+3. \_.nth
+
+    Remove all false, null, 0, "", undefined values and NaN from the original array.
+
+    ```js
+      const arr = [1, '', 2];
+      console.log(_.compact(arr)); // output: [1, 2] 
+      // arr : [1, '', 2]
+    ```
+
+4. \_.findIndex, \_.findLastIndex, \_.lastIndexOf
+
+    Remove all false, null, 0, "", undefined values and NaN from the original array.
+
+    ```js
+      const arr = [1, '', 2];
+      console.log(_.compact(arr)); // output: [1, 2] 
+      // arr : [1, '', 2]
+    ```
+
+5. \_.pull, \_.pullAll, \_.pullAllBy, \_.pullAllWith, \_.pullAt
+
+    This method returns an object composed from key-value pairs.
+
+    ```js
+      _.fromPairs([['a', 1], ['b', 2]]);
+      // { 'a': 1, 'b': 2 }
+    ```
+
+6. \_.drop, \_.dropRight, \_.dropWhile, \_.dropRightWhile, \_.remove
+
+    Remove .
+
+    ```js
+      const arr = [1, '', 2];
+      console.log(_.compact(arr)); // output: [1, 2] 
+      // arr : [1, '', 2]
+    ```
+
+7. \_.head, \_.tail, \_.initial, \_.last
+
+    Remove .
+
+    ```js
+      const arr = [1, '', 2];
+      console.log(_.compact(arr)); // output: [1, 2] 
+      // arr : [1, '', 2]
+    ```
+
+8. \_.flatten, \_.flattenDeep, \_.flattenDepth
+
+    Remove .
+
+    ```js
+      const arr = [1, '', 2];
+      console.log(_.compact(arr)); // output: [1, 2] 
+      // arr : [1, '', 2]
+    ```
+
+9. \_.fromPairs.
+
+    This method returns an object composed from key-value pairs.
+
+    ```js
+      _.fromPairs([['a', 1], ['b', 2]]);
+      // { 'a': 1, 'b': 2 }
+    ```
+
+10. \_.intersection, \_.intersectionBy, \_.intersectionWith, \_.join.
+
+    This method returns an object composed from key-value pairs.
+
+    ```js
+      _.fromPairs([['a', 1], ['b', 2]]);
+      // { 'a': 1, 'b': 2 }
+    ```
+
+11. \_.xor, \_.xorBy, \_.xorWith, \_.difference, \_.differenceBy, differenceWith.
+
+    This method returns an object composed from key-value pairs.
+
+    ```js
+      _.fromPairs([['a', 1], ['b', 2]]);
+      // { 'a': 1, 'b': 2 }
+    ```
+
+12. \_.union, \_.unionBy, \_.unionWith, join, xor, xorBy, xorWith.
+
+    This method returns an object composed from key-value pairs.
+
+    ```js
+      _.fromPairs([['a', 1], ['b', 2]]);
+      // { 'a': 1, 'b': 2 }
+    ```
+
+13. \_.zip, \_.zipObject, \_.zipObjectDeep, \_.zipWith, \_. unzip, \_.unzipWith.
+
+    This method returns an object composed from key-value pairs.
+
+    ```js
+      _.fromPairs([['a', 1], ['b', 2]]);
+      // { 'a': 1, 'b': 2 }
+    ```
+
+14. \_.sortedIndex, \_.sortedIndexBy, \_.sortedIndexOf, \_.sortedLastIndex,
+\_.sortedLastIndexBy, \_.sortedLastIndexOf, \_.sortedUniq, \_.sortedUniqBy
+
+    This method returns an object composed from key-value pairs.
+
+    ```js
+      _.fromPairs([['a', 1], ['b', 2]]);
+      // { 'a': 1, 'b': 2 }
+    ```
+
+[back to top](#backend-quiz3)
+
+#### Comparison JS-native Array vs LoDash Array
+
+[back to top](#backend-quiz3)
+
+### Object
+
+#### JS-Native Object
+
+1. Object.assign()
+
+    The method copies all enumerable own properties from one or more source objects to a target object. It returns the modified target object.
+
+    ```js
+      const target = { a: 1, b: 2 };
+      const source = { b: 4, c: 5 };
+      
+      Object.assign(target, source);
+      // {a: 1, b: 4, c: 5};
+
+    ```
+
+2. Object.create()
+
+    The Object.create() method creates a new object, using an existing object as the prototype of the newly created object. The element are shallow copied.
+
+    ```js
+      const person = {
+        isHuman: false,
+        printIntroduction: function() {
+          console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
+        }
+      };
+
+      const me = Object.create(person);
+
+      me.name = 'Matthew'; // "name" is a property set on "me", but not on "person"
+      me.isHuman = true; // inherited properties can be overwritten
+
+      me.printIntroduction();
+      // expected output: "My name is Matthew. Am I human? true"
+    ```
+
+3. Object.entries()
+
+    The Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs.
+
+    ```js
+      const object1 = {
+        a: 'somestring',
+        b: 42
+      };
+
+      for (const [key, value] of Object.entries(object1)) {
+        console.log(`${key}: ${value}`);
+      }
+
+      // output:
+      // "a: somestring"
+      // "b: 42"  
+    ```
+
+4. Object.getOwnPropertyNames()
+
+    The Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs.
+
+    ```js
+      const object1 = {
+        a: 'somestring',
+        b: 42
+      };
+
+      for (const [key, value] of Object.entries(object1)) {
+        console.log(`${key}: ${value}`);
+      }
+      
+      // output:
+      // "a: somestring"
+      // "b: 42"  
+    ```
+5. Object.entries()
+
+    The Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs.
+
+    ```js
+      const object1 = {
+        a: 'somestring',
+        b: 42
+      };
+
+      for (const [key, value] of Object.entries(object1)) {
+        console.log(`${key}: ${value}`);
+      }
+      
+      // output:
+      // "a: somestring"
+      // "b: 42"  
+    ```
+
+6. Object.entries()
+
+    The Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs.
+
+    ```js
+      const object1 = {
+        a: 'somestring',
+        b: 42
+      };
+
+      for (const [key, value] of Object.entries(object1)) {
+        console.log(`${key}: ${value}`);
+      }
+      
+      // output:
+      // "a: somestring"
+      // "b: 42"  
+    ```
+
+7. Object.entries()
+
+    The Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs.
+
+    ```js
+      const object1 = {
+        a: 'somestring',
+        b: 42
+      };
+
+      for (const [key, value] of Object.entries(object1)) {
+        console.log(`${key}: ${value}`);
+      }
+      
+      // output:
+      // "a: somestring"
+      // "b: 42"  
+    ```
+
+#### LoDash Object
 
 1. \_.assign and \_.extend
 
@@ -549,9 +830,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // };
     ```
 
-[back to top](#backend-quiz3)
-
-### Comparison
+#### JS-Native Object vs LoDash Object
 
 1. **_.filter vs filter(), _.find vs find()**
 
@@ -613,8 +892,6 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
 5. **_.reduce vs reduce(), _.map vs map(), _.reduceRight vs reduceRight(), _.concat vs concat()**
 
     Those functions in LoDash and JS-native are the same, so if it's unnecessary to download LoDash for those functions only.
-
-[back to top](#backend-quiz3)
 
 ## Quiz 2
 
