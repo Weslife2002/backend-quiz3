@@ -2,11 +2,14 @@ import { should } from 'chai';
 import _ from 'lodash';
 import Scale from '../src/Scale.js';
 import {
-  findFaultCoin,
   handleThreeCoin,
   handleThreeCoinFromDifferentGroups,
   handleTwoGroup,
 } from '../src/algo.js';
+import {
+  findFaultCoin,
+}
+from '../src/algo2-refactor.js';
 
 should();
 

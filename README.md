@@ -321,17 +321,22 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
 
 3. \_.nth
 
-    Remove all false, null, 0, "", undefined values and NaN from the original array.
+    Gets the element at index n of array. If n is negative, the nth element from the end is returned.
 
     ```js
-      const arr = [1, '', 2];
-      console.log(_.compact(arr)); // output: [1, 2] 
-      // arr : [1, '', 2]
+      const array = ['a', 'b', 'c', 'd'];
+
+      _.nth(array, 1);
+      // => 'b'
+      
+      _.nth(array, -2);
+      // => 'c';
     ```
 
-4. \_.findIndex, \_.findLastIndex, \_.lastIndexOf
+4. \_.find, \_.findLast, \_.findIndex, \_.findLastIndex, \_.indexOf, \_.lastIndexOf.
 
-    Remove all false, null, 0, "", undefined values and NaN from the original array.
+    Those method is like _.find except that it returns the index of the first element predicate returns truthy for instead of the element itself.
+    While the findIndex search for the element from left to right, findLastIndex do it reversely,
 
     ```js
       const arr = [1, '', 2];
@@ -423,8 +428,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // { 'a': 1, 'b': 2 }
     ```
 
-14. \_.sortedIndex, \_.sortedIndexBy, \_.sortedIndexOf, \_.sortedLastIndex,
-\_.sortedLastIndexBy, \_.sortedLastIndexOf, \_.sortedUniq, \_.sortedUniqBy
+14. \_.sortedIndex, \_.sortedIndexBy, \_.sortedIndexOf, \_.sortedLastIndex, \_.sortedLastIndexBy, \_.sortedLastIndexOf, \_.sortedUniq, \_.sortedUniqBy
 
     This method returns an object composed from key-value pairs.
 
@@ -514,6 +518,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // "a: somestring"
       // "b: 42"  
     ```
+
 5. Object.entries()
 
     The Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs.
@@ -533,7 +538,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // "b: 42"  
     ```
 
-6. Object.entries()
+6. Object.keys()
 
     The Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs.
 
@@ -552,7 +557,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // "b: 42"  
     ```
 
-7. Object.entries()
+7. Object.values()
 
     The Object.entries() method returns an array of a given object's own enumerable string-keyed property [key, value] pairs.
 
@@ -602,33 +607,9 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       _.assign(object, other);  // { a: [{ c: [1, 2, 3] }, { e: 5 }, { f: 100 }] }
     ```
 
-3. _.concat
+3. \_.forIn and \_.forInRight vs \_.forOwn and \_.forOwnRight
 
-    This method is used to merge arrays with other arrays or add variable or even create new array from variable.
-
-    ```js
-      let array1 = [1, 5, 3, 1];
-      let array2 = [7, 25, 21];
-      let array3 = [11, 3, 3, 2];
-      let mergedArray = _.concat(array1, array2, array3); // mergedArray: [1, 5, 3, 1, 7, 25, 21, 11, 3, 3, 2]
-      const newProduct = _.concat(1, ['category', 'discount']); // newProduct: [1, 'category', 'discount']
-    ```
-
-4. _.times
-
-    _.times receives as arguments the number of iterations and a function to execute n times and returns an array of the results. Very useful when creating dynamic test data.
-
-    ```js
-      _.times(3, String);
-      // => ['0', '1', '2']
-
-      var result = _.times(5, Math.round(Math.random() * 100));
-      // result => [64, 70, 29, 10, 23]
-    ```
-
-5. _.find
-
-    Instead iterating through an array with a loop to find a specific object, we can simply use _.find. You can also find an object using multiple properties.
+    \_.forIn loops through every key-value pair that the object owns and inherits while \_.forOwn only loops through the key-value pair that the object owns.
 
     ```js
       var users = [
@@ -647,7 +628,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // underAgeUser -> { firstName: "Jane", lastName: "Doe", age: 5, gender: "female" }
     ```
 
-6. _.get
+4. _.get
 
     Gets the value at path of object. If the resolved value is undefined, the defaultValue is returned in its place.
 
@@ -657,7 +638,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // name => John Doe
     ```
 
-7. _.set
+5. _.set
 
     Sets the value at path of object. If a portion of path doesn't exist, it's created. Arrays are created for missing index properties while objects are created for all other missing properties.
 
@@ -667,12 +648,32 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // bar => { foo: { key: "foo", items: ["An item"] } }
     ```
 
-8. _.clone
+6. \_.has vs \_.hasIn
+
+    \_.has checks if path is a direct property of object.
+    \_.hasIn checks if path is a direct or inherited property of object.
+
+    ```js
+      var bar = { foo: { key: "foo" } };
+      _.set(bar, "foo.items[0]", "An item");
+      // bar => { foo: { key: "foo", items: ["An item"] } }
+    ```
+
+7. \_.has vs \_.hasIn
+
+    \_.has checks if path is a direct property of object.
+    \_.hasIn checks if path is a direct or inherited property of object.
+
+    ```js
+      var bar = { foo: { key: "foo" } };
+      _.set(bar, "foo.items[0]", "An item");
+      // bar => { foo: { key: "foo", items: ["An item"] } }
+    ```
+
+8. \_.clone vs \_.cloneDeep
 
     Creates a shallow clone of value.
     _Note: An empty object is returned for uncloneable values such as error objects, functions, DOM nodes, and WeakMaps._
-
-9. _.cloneDeep
 
     _.cloneDeep will clone an object. The new object will also have a new address in memory so you won’t crush a property from the original object.
 
@@ -685,7 +686,44 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // deepCopy -> { foo: [1, 2, 3] } Yeah!
     ```
 
-10. _.sortedUniq and \_.uniq
+9. \_.invert vs \_.invertBy
+
+    \_.invert creates an object composed of the inverted keys and values of object. If object contains duplicate values, subsequent values overwrite property assignments of previous values.
+
+    \_.invertBy will apply the function provided on the value of original object to have the key and the original key will be the element of the new value array. Pairs created that have same key will concat their value.
+
+    ```js
+      let original = { foo: [1, 2, 3] };
+      let shallowCopy = _.clone(original);
+      let deepCopy = _.cloneDeep(original);
+      original.foo[1] = 100;
+      // shallowCopy -> { foo: [1, 100, 3] } Yeah!
+      // deepCopy -> { foo: [1, 2, 3] } Yeah!
+    ```
+
+10. _.keys vs \_.keysIn and \_.values vs \_.valuesIn
+
+    _.keys creates an array of the own enumerable property names of object.
+    _.keysIn creates an array of the own and inherited enumerable property names of object.
+
+    ```js
+      var sortedArray = [1, 1, 2, 3, 3, 3, 5, 8, 8];
+      var result = _.sortedUniq(sortedArray);
+      // -> [1, 2, 3, 5, 8]
+    ```
+
+11. _.keys vs \_.keysIn and \_.values vs \_.valuesIn
+
+    _.keys creates an array of the own enumerable property names of object.
+    _.keysIn creates an array of the own and inherited enumerable property names of object.
+
+    ```js
+      var sortedArray = [1, 1, 2, 3, 3, 3, 5, 8, 8];
+      var result = _.sortedUniq(sortedArray);
+      // -> [1, 2, 3, 5, 8]
+    ```
+
+12. _.sortedUniq and \_.uniq
 
     With \_.sortedUniq, similar to \_.uniq when all duplicated values won’t be returned. However \_.sortedUniq is usually used for performance reasons, because it is specifically for the sorted arrays.
 
@@ -695,7 +733,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // -> [1, 2, 3, 5, 8]
     ```
 
-11. _.filter
+13. _.filter
 
     Iterates over elements of collection, returning an array of all elements predicate returns truthy for. The predicate is invoked with three arguments: (value, index|key, collection).
 
@@ -709,7 +747,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // output: [{ 'user': 'fred',   'age': 40, 'active': false }]
     ```
 
-12. _.isEqual
+14. _.isEqual
 
     Performs a deep comparison between two values to determine if they are equivalent.
 
@@ -729,7 +767,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
     _Note: Two objects are never the same even if they have the same content, as two different instances of Object is never equal._
     _When comparing two object, JavaScript compares internal references which are equal only when both operands refer to the same object in memory, keys and values are not checked, so the content of the object doesn't matter, the operands both have to reference the same object to return true in a comparison._
 
-13. _.pick
+15. _.pick
 
     _.pick function is useful when you want to form a new object based on the properties of the existing object.
 
@@ -744,7 +782,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // newProduct: { name: ‘Learning React Native, price: 15 }
     ```
 
-14. _.omit
+16. _.omit
 
     _.omit can be used to create a new project that doesn't have some properties of the existing object.
     _Note: the new obj is a shallow copy of the existing one only._
@@ -760,7 +798,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // newProduct: { name: ‘Learning React Native, price: 15 }
     ```
 
-15. _.isEmpty
+17. _.isEmpty
 
     This function checks if an object, a map, a collection, or a set is empty.
 
@@ -771,7 +809,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       console.log(_.isEmpty(book2)); // false;
     ```
 
-16. _.union
+18. _.union
 
     This function create a new array from the element’s the unique values.
 
@@ -780,7 +818,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // unitedArray: [1, 5, 3, 7, 25, 21, 11, 2]
     ```
 
-17. _.difference
+19. _.difference
 
     The difference function will produce a new array of values that is in the first array but not in the second arrays.
 
@@ -788,7 +826,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       _.difference([2, 1], [2, 3]); // => [1]
     ```
 
-18. _.intersection
+20. _.intersection
 
     Creates an array of unique values that are included in all given arrays using SameValueZero for equality comparisons. The order and references of result values are determined by the first array.
 
@@ -796,7 +834,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       _.intersection([2, 1], [2, 3]); // => [2]
     ```
 
-19. _.orderBy
+21. _.orderBy
 
     The orderBy method is similar to sortBy but it allows us to specify the descending or ascending sort order. For descending sort, we specify desc and for ascending we specify asc.
 
@@ -812,7 +850,7 @@ In the seond task, I am required to write three files - **${\color{orange}Scale.
       // [['barney', 36], ['barney', 34], ['fred', 48], ['fred', 40]]
     ```
 
-20. _.keyBy
+22. _.keyBy
 
     Creates an object composed of keys generated from the results of running each element of collection thru iteratee. The corresponding value of each key is the last element responsible for generating the key. The iteratee is invoked with one argument: (value).
 

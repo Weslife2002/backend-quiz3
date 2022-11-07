@@ -78,12 +78,9 @@ function findFaultCoin(scale) {
   return handleTwoGroup(scale, group2, group1);
 }
 
-let testCaseFails = 0;
-
-for (let i = 0; i < 1000; i += 1) {
-  const scale = new Scale();
-  const { faultIndex, heavier } = findFaultCoin(scale);
-  testCaseFails += !scale.checkResult(faultIndex, heavier);
-}
-
-console.log(`You failed ${testCaseFails} test cases`);
+export {
+  findFaultCoin,
+  handleTwoGroup,
+  handleThreeCoinFromDifferentGroups,
+  handleThreeCoin,
+};
